@@ -5,3 +5,9 @@
  */
 
 // You can delete this file if you're not using it
+const React = require("react")
+const TopLayout = require("./src/components/TopLayout").default
+
+exports.wrapRootElement = ({ element, props }) => {
+  return <TopLayout {...props}>{element}</TopLayout>
+}

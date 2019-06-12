@@ -1,8 +1,9 @@
 module.exports = {
   siteMetadata: {
+    name: "Vikas Raj",
     title: `Full Stack Developer`,
     description: `Full Stack Developer who loves to make new things.`,
-    author: `Vikas Raj`,
+    author: `@numberToString`,
     social: [
       {
         platform: "twitter",

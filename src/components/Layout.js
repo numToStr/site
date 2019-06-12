@@ -2,11 +2,36 @@ import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 
 import Header from "./Header";
+import Footer from "./Footer";
+import Box from "@material-ui/core/Box";
+
+const px = {
+    xs: 2,
+    md: 3.5,
+};
+
+const padding = {
+    py: {
+        xs: 2,
+        md: 3.5,
+    },
+    px,
+};
 
 const Layout = ({ children }) => (
     <Fragment>
-        <Header />
-        {children}
+        <Header padding={padding} />
+        <Box
+            height="100%"
+            py={{
+                xs: 6,
+                md: 10,
+            }}
+            px={px}
+        >
+            {children}
+        </Box>
+        <Footer padding={padding} />
     </Fragment>
 );
 

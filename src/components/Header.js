@@ -5,7 +5,7 @@ import Box from "@material-ui/core/Box";
 import MuiLink from "@material-ui/core/Link";
 import { Link } from "gatsby";
 
-const Header = () => {
+const Header = ({ padding }) => {
     const [show, setShow] = useState(false);
 
     const showDrawer = () => setShow(v => !v);
@@ -19,8 +19,7 @@ const Header = () => {
                 zIndex="tooltip"
                 display="flex"
                 justifyContent="space-between"
-                py={3.5}
-                px={3.5}
+                {...padding}
             >
                 <MuiLink
                     underline="none"

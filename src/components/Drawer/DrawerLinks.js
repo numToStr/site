@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import styled from "@material-ui/styles/styled";
+import Link from "@material-ui/core/Link";
 import { navigate } from "gatsby";
 import { animated, useTrail } from "react-spring";
 
@@ -42,11 +43,14 @@ const config = { mass: 1, tension: 170, friction: 18 };
 export default ({ open, onTap }) => {
     const [hover, setHover] = useState(false);
 
-    const handleClick = link => ev => {
-        ev.preventDefault();
-        onTap();
-        navigate(link);
-    };
+    const handleClick = useCallback(
+        link => ev => {
+            ev.preventDefault();
+            onTap();
+            navigate(link);
+        },
+        []
+    );
 
     const trails = useTrail(links.length, {
         config,
@@ -79,13 +83,15 @@ export default ({ open, onTap }) => {
                     color,
                 }}
             >
-                <a
+                <Link
+                    color="inherit"
+                    underline="none"
                     onClick={handleClick(curr.to)}
                     data-href={curr.to}
                     href={curr.to}
                 >
                     {curr.text}
-                </a>
+                </Link>
             </LinkDiv>
         );
     });

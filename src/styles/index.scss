@@ -1,0 +1,10 @@
+html,
+body,
+#___gatsby {
+    overflow: hidden;
+    height: 100%;
+    position: relative;
+    > div:first-child {
+        @extend #___gatsby;
+    }
+}

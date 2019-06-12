@@ -4,7 +4,8 @@ import Box from "@material-ui/core/Box";
 
 const DrawerButton = props => {
     return (
-        <Box position="fixed" zIndex="tooltip" top="1rem" right="1rem">
+        // <Box position="fixed" zIndex="tooltip" top="1rem" right="1rem">
+        <Box>
             <Button size="small" variant="contained" {...props} />
         </Box>
     );

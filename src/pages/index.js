@@ -17,6 +17,7 @@ const IndexPage = () => {
                 alignItems="center"
                 height="100%"
                 width="100%"
+                px={2}
             >
                 <Box mb={8}>
                     <Box

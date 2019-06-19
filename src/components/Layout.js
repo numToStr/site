@@ -6,13 +6,13 @@ import Footer from "./Footer";
 import Box from "@material-ui/core/Box";
 
 const px = {
-    xs: 2,
-    md: 3.5,
+    xs: 2.5,
+    md: 4,
 };
 
 const padding = {
     py: {
-        xs: 2,
+        xs: 2.5,
         md: 3.5,
     },
     px,
@@ -24,10 +24,11 @@ const Layout = ({ children }) => (
         <Box
             height="100%"
             py={{
-                xs: 6,
+                xs: 8,
                 md: 10,
             }}
             px={px}
+            style={{ overflowY: "auto" }}
         >
             {children}
         </Box>

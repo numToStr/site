@@ -29,9 +29,11 @@ const Header = ({ padding }) => {
                 >
                     Logo
                 </MuiLink>
-                <DrawerButton handleClick={showDrawer}>Show</DrawerButton>
+                <DrawerButton onClick={showDrawer} open={show}>
+                    Show
+                </DrawerButton>
             </Box>
-            <BaseDrawer show={show} onTap={showDrawer} />
+            <BaseDrawer open={show} onTap={showDrawer} />
         </Fragment>
     );
 };

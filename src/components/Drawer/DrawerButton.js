@@ -1,30 +1,23 @@
-import React, { useState, useCallback } from "react";
+import React from "react";
 
 import { useTrail, animated } from "react-spring";
 import Box from "@material-ui/core/Box";
 
 const bars = [28, 20, 28];
 
-const DrawerButton = ({ handleClick }) => {
-    const [clicked, setClicked] = useState(false);
-
-    const onHamClicked = useCallback(() => {
-        setClicked(click => !click);
-        handleClick();
-    }, [setClicked, handleClick]);
-
+const DrawerButton = ({ onClick, open }) => {
     const trails = useTrail(bars.length, {
         from: {
             color: "#000",
         },
         to: {
-            color: clicked ? "#fff" : "#000",
+            color: open ? "#fff" : "#000",
         },
     });
 
     return (
         <Box
-            onClick={onHamClicked}
+            onClick={onClick}
             style={{ cursor: "pointer" }}
             display="flex"
             flexDirection="column"

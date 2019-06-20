@@ -3,10 +3,10 @@ import React from "react";
 import DrawerBackground from "./DrawerBackground";
 import DrawerLinks from "./DrawerLinks";
 
-const BaseDrawer = ({ show, onTap }) => {
+const BaseDrawer = ({ open, onTap }) => {
     return (
-        <DrawerBackground open={show}>
-            <DrawerLinks open={show} onTap={onTap} />
+        <DrawerBackground open={open}>
+            <DrawerLinks open={open} onTap={onTap} />
         </DrawerBackground>
     );
 };

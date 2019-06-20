@@ -27,6 +27,7 @@
         "react-spring": "^9.0.0-beta.22"
     },
     "devDependencies": {
+        "dotenv": "^8.0.0",
         "prettier": "^1.18.2"
     },
     "keywords": [

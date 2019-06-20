@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useState, useCallback } from "react";
 import styled from "@material-ui/styles/styled";
 import Link from "@material-ui/core/Link";
 import { navigate } from "gatsby";
@@ -10,15 +10,8 @@ const LinkDiv = styled(animated.div)(({ theme: { breakpoints } }) => ({
     margin: "0 0 1rem",
     lineHeight: "normal",
     fontSize: "3.5rem",
-    color: "#fff",
-    letterSpacing: 10,
-    transition: "color .3s ease-in-out, letter-spacing .5s ease-in-out",
     [breakpoints.down("sm")]: {
         fontSize: "2rem",
-    },
-    "&:hover": {
-        letterSpacing: 20,
-        color: "crimson !important",
     },
 }));
 
@@ -48,6 +41,8 @@ const links = [
 const config = { mass: 1, tension: 170, friction: 18 };
 
 export default ({ open, onTap }) => {
+    const [hover, setHover] = useState(false);
+
     const handleClick = useCallback(
         link => ev => {
             ev.preventDefault();
@@ -57,28 +52,42 @@ export default ({ open, onTap }) => {
         [onTap, navigate]
     );
 
+    const handleHover = useCallback(
+        val => () => {
+            setHover(val);
+        },
+        [setHover]
+    );
+
     const trails = useTrail(links.length, {
         config,
         from: {
             opacity: 0,
             xy: [-50, -200],
+            letterSpacing: 0,
         },
         to: {
             opacity: open ? 1 : 0,
             xy: open ? [0, 0] : [-50, -200],
+            letterSpacing: hover ? 20 : 10,
+            color: hover ? "#ff0" : "#fff",
         },
     });
 
-    return trails.map(({ xy, opacity }, $i) => {
+    return trails.map(({ xy, opacity, letterSpacing, color }) => {
         const curr = links[$i];
         return (
             <LinkDiv
                 key={curr.text}
+                onMouseOver={handleHover(true)}
+                onMouseLeave={handleHover(false)}
                 style={{
                     opacity: opacity.interpolate([0, 0.7, 1], [0, 0.3, 1]),
                     transform: xy.interpolate(
                         (_x, _y) => `translate3d(${_x}%,${_y}px,0)`
                     ),
+                    letterSpacing,
+                    color,
                 }}
             >
                 <Link

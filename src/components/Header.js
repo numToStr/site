@@ -1,14 +1,23 @@
-import React, { useState, Fragment } from "react";
+import React, { useState, Fragment, useCallback } from "react";
 import BaseDrawer from "./Drawer/Drawer";
 import DrawerButton from "./Drawer/DrawerButton";
 import Box from "@material-ui/core/Box";
 import MuiLink from "@material-ui/core/Link";
-import { Link } from "gatsby";
+import { navigate } from "gatsby";
 
 const Header = ({ padding }) => {
     const [show, setShow] = useState(false);
 
     const showDrawer = () => setShow(v => !v);
+
+    const handleClick = useCallback(
+        link => ev => {
+            ev.preventDefault();
+            showDrawer();
+            navigate(link);
+        },
+        [showDrawer, navigate]
+    );
 
     return (
         <Fragment>
@@ -23,9 +32,9 @@ const Header = ({ padding }) => {
             >
                 <MuiLink
                     underline="none"
-                    component={Link}
-                    to="/"
+                    href="/"
                     color="secondary"
+                    onClick={handleClick("/")}
                 >
                     Logo
                 </MuiLink>
@@ -33,7 +42,7 @@ const Header = ({ padding }) => {
                     Show
                 </DrawerButton>
             </Box>
-            <BaseDrawer open={show} onTap={showDrawer} />
+            <BaseDrawer open={show} onTap={handleClick} />
         </Fragment>
     );
 };

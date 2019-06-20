@@ -23,11 +23,11 @@ const Layout = ({ children }) => (
         <Header padding={padding} />
         <Box
             height="100%"
-            py={{
-                xs: 8,
-                md: 10,
+            py={10}
+            px={{
+                xs: 5,
+                md: 0,
             }}
-            px={px}
             style={{ overflowY: "auto" }}
         >
             {children}

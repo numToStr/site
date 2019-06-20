@@ -1,7 +1,6 @@
-import React, { useCallback } from "react";
+import React from "react";
 import styled from "@material-ui/styles/styled";
 import Link from "@material-ui/core/Link";
-import { navigate } from "gatsby";
 import { animated, useTrail } from "react-spring";
 
 const LinkDiv = styled(animated.div)(({ theme: { breakpoints } }) => ({
@@ -48,15 +47,6 @@ const links = [
 const config = { mass: 1, tension: 170, friction: 18 };
 
 export default ({ open, onTap }) => {
-    const handleClick = useCallback(
-        link => ev => {
-            ev.preventDefault();
-            onTap();
-            navigate(link);
-        },
-        [onTap, navigate]
-    );
-
     const trails = useTrail(links.length, {
         config,
         from: {
@@ -84,7 +74,7 @@ export default ({ open, onTap }) => {
                 <Link
                     color="inherit"
                     underline="none"
-                    onClick={handleClick(curr.to)}
+                    onClick={onTap(curr.to)}
                     data-href={curr.to}
                     href={curr.to}
                 >

@@ -36,12 +36,17 @@ const blog = () => {
             <SEO title="Blog" />
             <Grid container justify="center">
                 <Grid item xs={12} sm={8} md={6}>
-                    <Box px={2}>
-                        <Typography variant="h3" paragraph>
-                            Blog
-                        </Typography>
-                        {list}
-                    </Box>
+                    <Typography variant="h3" paragraph>
+                        Blog
+                    </Typography>
+                    <Box
+                        width={100}
+                        height={2}
+                        bgcolor="black"
+                        borderRadius="borderRadius"
+                        my={3}
+                    />
+                    {list}
                 </Grid>
             </Grid>
         </Fragment>

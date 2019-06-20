@@ -8,3 +8,7 @@ body,
         @extend #___gatsby;
     }
 }
+
+a {
+    outline: none !important;
+}

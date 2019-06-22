@@ -8,12 +8,13 @@ import { navigate } from "gatsby";
 const Header = ({ padding }) => {
     const [show, setShow] = useState(false);
 
-    const showDrawer = () => setShow(v => !v);
+    const showDrawer = f =>
+        typeof f === "boolean" ? setShow(f) : setShow(v => !v);
 
     const handleClick = useCallback(
-        link => ev => {
+        (link, flag) => ev => {
             ev.preventDefault();
-            showDrawer();
+            showDrawer(flag);
             navigate(link);
         },
         [showDrawer, navigate]
@@ -34,7 +35,7 @@ const Header = ({ padding }) => {
                     underline="none"
                     href="/"
                     color="secondary"
-                    onClick={handleClick("/")}
+                    onClick={handleClick("/", false)}
                 >
                     Logo
                 </MuiLink>

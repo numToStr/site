@@ -42,7 +42,7 @@ const about = () => {
                         <Box
                             height={{ xs: 2, md: 200 }}
                             width={{ xs: 100, md: 2 }}
-                            bgcolor="primary.main"
+                            bgcolor="text.primary"
                             borderRadius="borderRadius"
                             my={3}
                             mr={{

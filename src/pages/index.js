@@ -50,7 +50,6 @@ const IndexPage = () => {
                     >
                         {name}.
                     </Box>
-                    <Box height={5} width={5} bgcolor="primary" />
                     <Box display="flex" alignItems="center">
                         <Box
                             width={{

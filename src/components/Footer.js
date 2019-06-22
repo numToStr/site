@@ -1,5 +1,7 @@
 import React, { Fragment } from "react";
 import Box from "@material-ui/core/Box";
+import MuiLink from "@material-ui/core/Link";
+import { Link } from "gatsby";
 
 const Footer = ({ padding }) => {
     return (
@@ -15,7 +17,9 @@ const Footer = ({ padding }) => {
                 justifyContent="space-between"
                 {...padding}
             >
-                Just a Footer
+                <MuiLink component={Link} to="/blog" color="textPrimary">
+                    Blog
+                </MuiLink>
             </Box>
         </Fragment>
     );

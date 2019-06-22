@@ -5,7 +5,7 @@ import useBlogs from "../hooks/useBlogs";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import Grid from "@material-ui/core/Grid";
-import Link from "@material-ui/core/Link";
+import { Link } from "gatsby";
 
 const blog = () => {
     const blogs = useBlogs();
@@ -15,18 +15,28 @@ const blog = () => {
             node: {
                 frontmatter: { title, date },
                 excerpt,
+                fields: { slug },
             },
         }) => (
             <Box key={title} my={3}>
-                <Box mb={1}>
-                    <Link href="#!" variant="h6" color="textPrimary">
-                        {title}
-                    </Link>
+                <Box
+                    component={Link}
+                    to={`/blog/${slug}`}
+                    fontSize={{
+                        xs: "h6.fontSize",
+                        md: "h5.fontSize",
+                    }}
+                    color="secondary.main"
+                    fontWeight="fontWeightBold"
+                    display="block"
+                    mb={1}
+                >
+                    {title}
                 </Box>
                 <Typography component="p" variant="caption">
                     {date}
                 </Typography>
-                <Typography variant="body2" color="textSecondary">
+                <Typography variant="body2" color="textPrimary">
                     {excerpt}
                 </Typography>
             </Box>

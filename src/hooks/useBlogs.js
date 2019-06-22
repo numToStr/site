@@ -13,6 +13,9 @@ function useBlogs() {
                             date
                         }
                         excerpt(format: PLAIN, pruneLength: 50)
+                        fields {
+                            slug
+                        }
                     }
                 }
             }

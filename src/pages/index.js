@@ -29,7 +29,6 @@ const IndexPage = () => {
                         lineHeight={1}
                         mb={3}
                         letterSpacing={{
-                            xs: 0,
                             sm: 1,
                         }}
                     >
@@ -43,7 +42,7 @@ const IndexPage = () => {
                         }}
                         lineHeight={1}
                         mb={3}
-                        letterSpacing={1}
+                        letterSpacing={{ sm: 3 }}
                         fontWeight="fontWeightBold"
                         color="secondary.main"
                         style={{ textTransform: "uppercase" }}

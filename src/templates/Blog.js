@@ -1,7 +1,9 @@
 import React, { Fragment } from "react";
 import { graphql } from "gatsby";
 import SEO from "../components/SEO";
-import { Grid, Typography, Box } from "@material-ui/core";
+import Grid from "@material-ui/core/Grid";
+import Box from "@material-ui/core/Box";
+import DateFormat from "../components/DateFormat";
 
 export const data = graphql`
     query($slug: String!) {
@@ -42,7 +44,7 @@ const Blog = ({
                     >
                         {title}
                     </Box>
-                    <Typography color="textSecondary">{date}</Typography>
+                    <DateFormat date={date} variant="body2" />
                     <Box
                         pt={1}
                         pb={10}

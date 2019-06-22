@@ -2,6 +2,8 @@ import React, { Fragment } from "react";
 
 import SEO from "../components/SEO";
 import useBlogs from "../hooks/useBlogs";
+import DateFormat from "../components/DateFormat";
+
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import Grid from "@material-ui/core/Grid";
@@ -33,9 +35,14 @@ const blog = () => {
                 >
                     {title}
                 </Box>
-                <Typography component="p" variant="caption">
-                    {date}
-                </Typography>
+                <DateFormat
+                    date={date}
+                    component="p"
+                    variant="caption"
+                    margin={{
+                        mb: 1,
+                    }}
+                />
                 <Typography variant="body2" color="textPrimary">
                     {excerpt}
                 </Typography>

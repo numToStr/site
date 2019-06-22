@@ -22,24 +22,35 @@ const IndexPage = () => {
                 <Box mb={8}>
                     <Box
                         fontSize={{
-                            xs: "h3.fontSize",
-                            md: "h1.fontSize",
-                        }}
-                        lineHeight={1}
-                        mb={3}
-                    >
-                        Hello.
-                    </Box>
-                    <Box
-                        fontSize={{
-                            xs: "h4.fontSize",
+                            xs: "h5.fontSize",
+                            sm: "h4.fontSize",
                             md: "h3.fontSize",
                         }}
                         lineHeight={1}
                         mb={3}
+                        letterSpacing={{
+                            xs: 0,
+                            sm: 1,
+                        }}
                     >
-                        I'm {name}.
+                        I'M
                     </Box>
+                    <Box
+                        fontSize={{
+                            xs: "h3.fontSize",
+                            sm: "h2.fontSize",
+                            md: "h1.fontSize",
+                        }}
+                        lineHeight={1}
+                        mb={3}
+                        letterSpacing={1}
+                        fontWeight="fontWeightBold"
+                        color="secondary.main"
+                        style={{ textTransform: "uppercase" }}
+                    >
+                        {name}.
+                    </Box>
+                    <Box height={5} width={5} bgcolor="primary" />
                     <Box display="flex" alignItems="center">
                         <Box
                             width={{
@@ -47,16 +58,18 @@ const IndexPage = () => {
                                 md: 50,
                             }}
                             height={3}
-                            bgcolor="black"
+                            bgcolor="text.primary"
                             mr={2}
                             borderRadius="borderRadius"
                         />
                         <Box
                             fontSize={{
                                 xs: "body1.fontSize",
-                                md: "h5.fontSize",
+                                sm: "h5.fontSize",
+                                md: "h4.fontSize",
                             }}
                             lineHeight={1}
+                            letterSpacing={1}
                         >
                             {title}
                         </Box>

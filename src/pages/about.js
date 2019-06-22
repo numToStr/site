@@ -42,7 +42,7 @@ const about = () => {
                         <Box
                             height={{ xs: 2, md: 200 }}
                             width={{ xs: 100, md: 2 }}
-                            bgcolor="black"
+                            bgcolor="primary.main"
                             borderRadius="borderRadius"
                             my={3}
                             mr={{
@@ -52,12 +52,12 @@ const about = () => {
                     </Grid>
                     <Grid item xs={12} md>
                         <Box
-                            pr={{
-                                md: 4,
-                            }}
                             pb={{
                                 xs: 8,
                                 md: 0,
+                            }}
+                            pr={{
+                                md: 4,
                             }}
                         >
                             <Typography>{about}</Typography>

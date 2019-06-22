@@ -44,7 +44,7 @@ const blog = () => {
                     <Box
                         width={100}
                         height={2}
-                        bgcolor="black"
+                        bgcolor="primary.main"
                         borderRadius="borderRadius"
                         my={3}
                     />

@@ -42,7 +42,7 @@ exports.createPages = async ({ graphql, actions }) => {
         }
     `);
 
-    data.allMarkdownRemark.nodes.forEach(({ fields }) => {
+    data.allMarkdownRemark.edges.forEach(({ node: { fields } }) => {
         createPage({
             component: blogTemplate,
             path: `/blog/${fields.slug}`,

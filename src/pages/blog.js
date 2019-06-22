@@ -19,14 +19,16 @@ const blog = () => {
         }) => (
             <Box key={title} my={3}>
                 <Box mb={1}>
-                    <Link href="#!" variant="h6">
+                    <Link href="#!" variant="h6" color="textPrimary">
                         {title}
                     </Link>
                 </Box>
                 <Typography component="p" variant="caption">
                     {date}
                 </Typography>
-                <Typography variant="body2">{excerpt}</Typography>
+                <Typography variant="body2" color="textSecondary">
+                    {excerpt}
+                </Typography>
             </Box>
         )
     );

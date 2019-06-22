@@ -12,3 +12,7 @@ body,
 a {
     outline: none !important;
 }
+
+.gatsby-highlight pre[class*="language-"] {
+    padding: 1.5em !important;
+}

@@ -11,8 +11,8 @@ function useSiteMetadata() {
                     about
                     description
                     social {
-                        platform
-                        name
+                        twitter
+                        github
                     }
                 }
             }

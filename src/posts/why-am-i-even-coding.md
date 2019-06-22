@@ -11,7 +11,7 @@ From that day I started to learn coding and I can proudly say that I am a self t
 
 Practically, `I switched my career before even starting my career. 😬😬`
 
-![gatsby](https://gatsbyjs.org/Gatsby-Monogram.svg)
+![gatsby](../images/gatsby-icon.png)
 
 -   One
 -   two

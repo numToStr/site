@@ -15,3 +15,5 @@ Now, 2 years after working as a proffesional, I just use VS Code for every langu
 
 Honourble Mention: VIM
 I also use vim for quick file edits as terminal always stays open so why don't just use it.
+
+![gatsby-astronaut](../images/gatsby-astronaut.png)

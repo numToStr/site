@@ -11,12 +11,14 @@ const DrawerButton = ({ onClick, open }) => {
 
     const trails = useTrail(bars.length, {
         from: {
-            color: "#ff0",
-            xy: [400, -150],
+            color: palette.text.primary,
+            xy: [200, -150],
+            opacity: 0,
         },
         to: {
             color: open ? "#fff" : palette.text.primary,
             xy: [0, 0],
+            opacity: 1,
         },
     });
 
@@ -31,7 +33,7 @@ const DrawerButton = ({ onClick, open }) => {
                 md: 0.5,
             }}
         >
-            {trails.map(({ color, xy }, $i) => (
+            {trails.map(({ color, xy, opacity }, $i) => (
                 <Box
                     component={animated.div}
                     key={$i}
@@ -40,9 +42,10 @@ const DrawerButton = ({ onClick, open }) => {
                     mb={0.5}
                     borderRadius="borderRadius"
                     style={{
+                        opacity,
                         backgroundColor: color,
                         transform: xy.interpolate(
-                            (_x, _y) => `translate3d(${_x}%,${_y}px,0)`
+                            (_x, _y) => `translate3d(${_x}px,${_y}px,0)`
                         ),
                     }}
                 />

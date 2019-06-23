@@ -1,25 +1,14 @@
 import React from "react";
-import styled from "@material-ui/styles/styled";
+import makeStyles from "@material-ui/styles/makeStyles";
 import Link from "@material-ui/core/Link";
-import { animated, useTrail } from "react-spring";
+import Box from "@material-ui/core/Box";
+import { animated, useTrail, config } from "react-spring";
 
-const LinkDiv = styled(animated.div)(({ theme: { breakpoints } }) => ({
-    textTransform: "uppercase",
-    fontWeight: "bold",
-    margin: "0 0 1rem",
-    lineHeight: "normal",
-    fontSize: "3.5rem",
-    color: "#fff",
-    letterSpacing: 10,
-    transition: "color .3s ease-in-out, letter-spacing .5s ease-in-out",
-    [breakpoints.down("sm")]: {
-        fontSize: "2rem",
+const useStyles = makeStyles({
+    li: {
+        textTransform: "uppercase",
     },
-    "&:hover": {
-        letterSpacing: 20,
-        color: "crimson !important",
-    },
-}));
+});
 
 const links = [
     {
@@ -44,11 +33,10 @@ const links = [
     },
 ];
 
-const config = { mass: 1, tension: 170, friction: 18 };
-
 export default ({ open, onTap }) => {
+    const classes = useStyles();
     const trails = useTrail(links.length, {
-        config,
+        config: config.stiff,
         from: {
             opacity: 0,
             xy: [-50, -200],
@@ -62,8 +50,18 @@ export default ({ open, onTap }) => {
     return trails.map(({ xy, opacity }, $i) => {
         const curr = links[$i];
         return (
-            <LinkDiv
+            <Box
                 key={curr.text}
+                component={animated.div}
+                fontWeight="fontWeightBold"
+                lineHeight={1}
+                mb={3}
+                color="#fff"
+                fontSize={{
+                    xs: "h3.fontSize",
+                    md: "h2.fontSize",
+                }}
+                className={classes.li}
                 style={{
                     opacity: opacity.interpolate([0, 0.7, 1], [0, 0.3, 1]),
                     transform: xy.interpolate(
@@ -80,7 +78,7 @@ export default ({ open, onTap }) => {
                 >
                     {curr.text}
                 </Link>
-            </LinkDiv>
+            </Box>
         );
     });
 };

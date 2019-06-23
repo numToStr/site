@@ -48,7 +48,10 @@ const Blog = ({
                     <Box
                         pt={1}
                         pb={10}
-                        fontSize="body1.fontSize"
+                        fontSize={{
+                            xs: "body2.fontSize",
+                            md: "body1.fontSize",
+                        }}
                         dangerouslySetInnerHTML={{ __html: html }}
                     />
                 </Grid>

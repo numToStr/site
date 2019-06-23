@@ -25,7 +25,7 @@ const Layout = ({ children }) => (
             height="100%"
             py={10}
             px={{
-                xs: 5,
+                xs: 2.5,
                 md: 0,
             }}
             style={{ overflowY: "auto" }}

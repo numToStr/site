@@ -8,19 +8,39 @@ import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import Grid from "@material-ui/core/Grid";
 import { Link } from "gatsby";
+import { useTrail, config, animated } from "react-spring";
 
 const blog = () => {
     const blogs = useBlogs();
 
-    const list = blogs.map(
-        ({
+    const trails = useTrail(blogs.length, {
+        config: config.stiff,
+        delay: 50,
+        from: { x: -15, opacity: 0 },
+        to: { x: 0, opacity: 1 },
+    });
+
+    const list = trails.map(({ x, opacity }, $i) => {
+        const {
             node: {
                 frontmatter: { title, date },
                 excerpt,
                 fields: { slug },
             },
-        }) => (
-            <Box key={title} my={3}>
+        } = blogs[$i];
+
+        return (
+            <Box
+                key={title}
+                my={3}
+                component={animated.div}
+                style={{
+                    opacity,
+                    transform: x.interpolate(
+                        x => `translate3d(${x}px,${x}px,0)`
+                    ),
+                }}
+            >
                 <Box
                     component={Link}
                     to={`/blog/${slug}`}
@@ -47,8 +67,8 @@ const blog = () => {
                     {excerpt}
                 </Typography>
             </Box>
-        )
-    );
+        );
+    });
 
     return (
         <Fragment>

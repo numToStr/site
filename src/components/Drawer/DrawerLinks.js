@@ -32,7 +32,7 @@ const links = [
     },
     {
         text: "Projects",
-        to: "/",
+        to: "/projects",
     },
     {
         text: "Blog",

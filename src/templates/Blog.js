@@ -1,9 +1,13 @@
-import React, { Fragment } from "react";
-import { graphql } from "gatsby";
+import React, { Fragment, useMemo, useEffect } from "react";
+import { graphql, Link } from "gatsby";
 import SEO from "../components/SEO";
 import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
+import MuiLink from "@material-ui/core/Link";
 import DateFormat from "../components/DateFormat";
+import PreviousIcon from "@material-ui/icons/KeyboardArrowLeftRounded";
+import NextIcon from "@material-ui/icons/KeyboardArrowRightRounded";
+import { Typography } from "@material-ui/core";
 
 export const data = graphql`
     query($slug: String!) {
@@ -17,6 +21,21 @@ export const data = graphql`
     }
 `;
 
+const PreviousComp = () => (
+    <Fragment>
+        <PreviousIcon />
+        <Typography variant="subtitle2">Previous</Typography>
+    </Fragment>
+);
+const NextComp = () => (
+    <Fragment>
+        <Typography variant="subtitle2">Next</Typography>
+        <NextIcon />
+    </Fragment>
+);
+
+const htmlElem = document.querySelector("html");
+
 const Blog = ({
     data: {
         markdownRemark: {
@@ -24,7 +43,27 @@ const Blog = ({
             html,
         },
     },
+    pageContext: { previous, next },
 }) => {
+    const navs = useMemo(
+        () => [
+            { component: PreviousComp, link: previous },
+            { component: NextComp, link: next },
+        ],
+        [previous, next]
+    );
+
+    // To fixing the problem where gatsby link remembering the scroll position
+    useEffect(() => {
+        htmlElem.setAttribute(
+            "style",
+            "height: initial !important; overflow-y: auto;"
+        );
+        return () => {
+            htmlElem.removeAttribute("style");
+        };
+    }, [htmlElem]);
+
     return (
         <Fragment>
             <SEO title={title} />
@@ -45,15 +84,41 @@ const Blog = ({
                         {title}
                     </Box>
                     <DateFormat date={date} variant="body2" />
-                    <Box
-                        pt={1}
-                        pb={10}
-                        fontSize={{
-                            xs: "body2.fontSize",
-                            md: "body1.fontSize",
-                        }}
-                        dangerouslySetInnerHTML={{ __html: html }}
-                    />
+                    <Box pt={1} pb={10}>
+                        <Box
+                            fontSize={{
+                                xs: "body2.fontSize",
+                                md: "body1.fontSize",
+                            }}
+                            dangerouslySetInnerHTML={{ __html: html }}
+                        />
+                        <Box
+                            display="flex"
+                            justifyContent="space-between"
+                            pt={3}
+                        >
+                            {navs.map(({ component: Comp, link }) =>
+                                link ? (
+                                    <MuiLink
+                                        key={link}
+                                        component={Link}
+                                        to={`/blog/${link}`}
+                                        color="textPrimary"
+                                    >
+                                        <Box
+                                            display="flex"
+                                            alignItems="center"
+                                            lineHeight={1}
+                                        >
+                                            <Comp />
+                                        </Box>
+                                    </MuiLink>
+                                ) : (
+                                    <div key={link} />
+                                )
+                            )}
+                        </Box>
+                    </Box>
                 </Grid>
             </Grid>
         </Fragment>

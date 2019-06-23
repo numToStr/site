@@ -32,6 +32,16 @@ exports.createPages = async ({ graphql, actions }) => {
         query {
             allMarkdownRemark {
                 edges {
+                    previous {
+                        fields {
+                            slug
+                        }
+                    }
+                    next {
+                        fields {
+                            slug
+                        }
+                    }
                     node {
                         fields {
                             slug
@@ -42,13 +52,20 @@ exports.createPages = async ({ graphql, actions }) => {
         }
     `);
 
-    data.allMarkdownRemark.edges.forEach(({ node: { fields } }) => {
-        createPage({
-            component: blogTemplate,
-            path: `/blog/${fields.slug}`,
-            context: {
-                slug: fields.slug,
-            },
-        });
-    });
+    data.allMarkdownRemark.edges.forEach(
+        ({ node: { fields }, previous, next }) => {
+            const _previous = previous ? previous.fields.slug : null;
+            const _next = next ? next.fields.slug : null;
+
+            createPage({
+                component: blogTemplate,
+                path: `/blog/${fields.slug}`,
+                context: {
+                    previous: _previous,
+                    slug: fields.slug,
+                    next: _next,
+                },
+            });
+        }
+    );
 };

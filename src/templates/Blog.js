@@ -34,8 +34,6 @@ const NextComp = () => (
     </Fragment>
 );
 
-const htmlElem = document.querySelector("html");
-
 const Blog = ({
     data: {
         markdownRemark: {
@@ -55,6 +53,8 @@ const Blog = ({
 
     // To fixing the problem where gatsby link remembering the scroll position
     useEffect(() => {
+        const htmlElem = document.querySelector("html");
+
         htmlElem.setAttribute(
             "style",
             "height: initial !important; overflow-y: auto;"
@@ -62,7 +62,7 @@ const Blog = ({
         return () => {
             htmlElem.removeAttribute("style");
         };
-    }, [htmlElem]);
+    }, []);
 
     return (
         <Fragment>

@@ -1,11 +1,23 @@
 import React, { Fragment } from "react";
 
-import useSiteMetadata from "../hooks/useSiteMetadata";
 import SEO from "../components/SEO";
 import Box from "@material-ui/core/Box";
+import { useTrail } from "react-spring";
+import Im from "../components/Home/Im";
+import Name from "../components/Home/Name";
+import Title from "../components/Home/Title";
+
+const config = { mass: 5, tension: 2000, friction: 200 };
+
+const components = [Im, Name, Title];
 
 const IndexPage = () => {
-    const { name, title } = useSiteMetadata();
+    const trails = useTrail(3, {
+        config,
+        delay: 200,
+        from: { opacity: 0, x: 100 },
+        to: { opacity: 1, x: 0 },
+    });
 
     return (
         <Fragment>
@@ -20,58 +32,20 @@ const IndexPage = () => {
                 px={2}
             >
                 <Box mb={8}>
-                    <Box
-                        fontSize={{
-                            xs: "h5.fontSize",
-                            sm: "h4.fontSize",
-                            md: "h3.fontSize",
-                        }}
-                        lineHeight={1}
-                        mb={3}
-                        letterSpacing={{
-                            sm: 1,
-                        }}
-                    >
-                        I'M
-                    </Box>
-                    <Box
-                        fontSize={{
-                            xs: "h3.fontSize",
-                            sm: "h2.fontSize",
-                            md: "h1.fontSize",
-                        }}
-                        lineHeight={1}
-                        mb={3}
-                        letterSpacing={{ sm: 3 }}
-                        fontWeight="fontWeightBold"
-                        color="secondary.main"
-                        style={{ textTransform: "uppercase" }}
-                    >
-                        {name}.
-                    </Box>
-                    <Box display="flex" alignItems="center">
-                        <Box
-                            width={{
-                                xs: 30,
-                                md: 50,
-                            }}
-                            height={3}
-                            bgcolor="text.primary"
-                            mr={2}
-                            borderRadius="borderRadius"
-                        />
-                        <Box
-                            fontSize={{
-                                xs: "body1.fontSize",
-                                sm: "h5.fontSize",
-                                md: "h4.fontSize",
-                            }}
-                            lineHeight={1}
-                            letterSpacing={1}
-                        >
-                            {title}
-                        </Box>
-                    </Box>
+                    {trails.map(({ x, opacity }, $i) => {
+                        const Component = components[$i];
+                        return (
+                            <Component
+                                key={$i}
+                                style={{
+                                    opacity,
+                                    transform: x.interpolate(
+                                        x => `translate3d(0,${x}%,0)`
+                                    ),
+                                }}
+                            />
+                        );
+                    })}
                 </Box>
             </Box>
         </Fragment>

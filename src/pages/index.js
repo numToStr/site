@@ -6,6 +6,7 @@ import { useTrail, config } from "react-spring";
 import Im from "../components/Home/Im";
 import Name from "../components/Home/Name";
 import Title from "../components/Home/Title";
+import Footer from "../components/Footer";
 
 const components = [Im, Name, Title];
 
@@ -46,6 +47,7 @@ const IndexPage = () => {
                     })}
                 </Box>
             </Box>
+            <Footer />
         </Fragment>
     );
 };

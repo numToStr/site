@@ -84,40 +84,35 @@ const Blog = ({
                         {title}
                     </Box>
                     <DateFormat date={date} variant="body2" />
-                    <Box pt={1} pb={10}>
-                        <Box
-                            fontSize={{
-                                xs: "body2.fontSize",
-                                md: "body1.fontSize",
-                            }}
-                            dangerouslySetInnerHTML={{ __html: html }}
-                        />
-                        <Box
-                            display="flex"
-                            justifyContent="space-between"
-                            pt={3}
-                        >
-                            {navs.map(({ component: Comp, link }) =>
-                                link ? (
-                                    <MuiLink
-                                        key={link}
-                                        component={Link}
-                                        to={`/blog/${link}`}
-                                        color="textPrimary"
+                    <Box
+                        pt={1}
+                        fontSize={{
+                            xs: "body2.fontSize",
+                            md: "body1.fontSize",
+                        }}
+                        dangerouslySetInnerHTML={{ __html: html }}
+                    />
+                    <Box display="flex" justifyContent="space-between" pt={3}>
+                        {navs.map(({ component: Comp, link }) =>
+                            link ? (
+                                <MuiLink
+                                    key={link}
+                                    component={Link}
+                                    to={`/blog/${link}`}
+                                    color="textPrimary"
+                                >
+                                    <Box
+                                        display="flex"
+                                        alignItems="center"
+                                        lineHeight={1}
                                     >
-                                        <Box
-                                            display="flex"
-                                            alignItems="center"
-                                            lineHeight={1}
-                                        >
-                                            <Comp />
-                                        </Box>
-                                    </MuiLink>
-                                ) : (
-                                    <div key={link} />
-                                )
-                            )}
-                        </Box>
+                                        <Comp />
+                                    </Box>
+                                </MuiLink>
+                            ) : (
+                                <div key={link} />
+                            )
+                        )}
                     </Box>
                 </Grid>
             </Grid>

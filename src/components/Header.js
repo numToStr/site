@@ -1,11 +1,11 @@
-import React, { useState, Fragment, useCallback } from "react";
+import React, { useState, Fragment, useCallback, memo } from "react";
 import BaseDrawer from "./Drawer/Drawer";
 import DrawerButton from "./Drawer/DrawerButton";
 import Box from "@material-ui/core/Box";
 import MuiLink from "@material-ui/core/Link";
 import { navigate } from "gatsby";
 
-const Header = ({ padding }) => {
+const Header = () => {
     const [show, setShow] = useState(false);
 
     const showDrawer = f =>
@@ -29,7 +29,14 @@ const Header = ({ padding }) => {
                 zIndex="tooltip"
                 display="flex"
                 justifyContent="space-between"
-                {...padding}
+                py={{
+                    xs: 2.5,
+                    md: 3.5,
+                }}
+                px={{
+                    xs: 2.5,
+                    md: 4,
+                }}
             >
                 <MuiLink
                     underline="none"
@@ -48,4 +55,4 @@ const Header = ({ padding }) => {
     );
 };
 
-export default Header;
+export default memo(Header);

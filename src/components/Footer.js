@@ -1,9 +1,11 @@
-import React, { Fragment } from "react";
+import React, { Fragment, memo } from "react";
 import Box from "@material-ui/core/Box";
-import MuiLink from "@material-ui/core/Link";
+import Typography from "@material-ui/core/Typography";
+import Fab from "@material-ui/core/Fab";
+import ArrayIcon from "@material-ui/icons/PlayArrowTwoTone";
 import { Link } from "gatsby";
 
-const Footer = ({ padding }) => {
+const Footer = () => {
     return (
         <Fragment>
             <Box
@@ -12,17 +14,35 @@ const Footer = ({ padding }) => {
                 bottom={0}
                 left={0}
                 width="100%"
-                zIndex="tooltip"
                 display="flex"
-                justifyContent="space-between"
-                {...padding}
+                justifyContent="flex-end"
+                py={{
+                    xs: 2.5,
+                    md: 3.5,
+                }}
+                px={{
+                    xs: 2.5,
+                    md: 4,
+                }}
             >
-                <MuiLink component={Link} to="/blog" color="textPrimary">
-                    Blog
-                </MuiLink>
+                <Box
+                    component={Link}
+                    to="/blog"
+                    display="flex"
+                    alignItems="center"
+                >
+                    <Box lineHeight={1} px={1}>
+                        <Typography variant="body2" color="textPrimary">
+                            Blog
+                        </Typography>
+                    </Box>
+                    <Fab size="small">
+                        <ArrayIcon color="secondary" fontSize="small" />
+                    </Fab>
+                </Box>
             </Box>
         </Fragment>
     );
 };
 
-export default Footer;
+export default memo(Footer);

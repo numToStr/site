@@ -1,6 +1,6 @@
 import React from "react";
 
-import { useTrail, animated } from "react-spring";
+import { useTrail, animated, config } from "react-spring";
 import Box from "@material-ui/core/Box";
 import useTheme from "@material-ui/styles/useTheme";
 
@@ -12,7 +12,7 @@ const DrawerButton = ({ onClick, open }) => {
     const trails = useTrail(bars.length, {
         from: {
             color: palette.text.primary,
-            xy: [200, -150],
+            xy: [10, -15],
             opacity: 0,
         },
         to: {
@@ -20,6 +20,7 @@ const DrawerButton = ({ onClick, open }) => {
             xy: [0, 0],
             opacity: 1,
         },
+        config: config.wobbly,
     });
 
     return (

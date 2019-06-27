@@ -11,7 +11,25 @@ module.exports = {
         },
     },
     plugins: [
+        `gatsby-plugin-sass`,
+        {
+            resolve: `gatsby-plugin-material-ui`,
+            options: {
+                stylesProvider: {
+                    injectFirst: true,
+                },
+            },
+        },
         `gatsby-plugin-react-helmet`,
+        {
+            resolve: `gatsby-plugin-nprogress`,
+            options: {
+                // Setting a color is optional.
+                color: `red`,
+                // Disable the loading spinner.
+                showSpinner: false,
+            },
+        },
         {
             resolve: `gatsby-source-filesystem`,
             options: {
@@ -116,15 +134,6 @@ module.exports = {
                 ],
             },
         },
-        {
-            resolve: `gatsby-plugin-material-ui`,
-            options: {
-                stylesProvider: {
-                    injectFirst: true,
-                },
-            },
-        },
-        `gatsby-plugin-sass`,
         {
             resolve: "gatsby-plugin-react-svg",
             options: {

@@ -12,7 +12,7 @@ const DrawerButton = ({ onClick, open }) => {
     const trails = useTrail(bars.length, {
         from: {
             color: palette.text.primary,
-            xy: [10, -15],
+            xy: [-10, 0],
             opacity: 0,
         },
         to: {

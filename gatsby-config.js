@@ -11,15 +11,15 @@ module.exports = {
         },
     },
     plugins: [
-        `gatsby-plugin-sass`,
         {
             resolve: `gatsby-plugin-material-ui`,
-            options: {
-                stylesProvider: {
-                    injectFirst: true,
-                },
-            },
+            // options: {
+            //     stylesProvider: {
+            //         injectFirst: true,
+            //     },
+            // },
         },
+        `gatsby-plugin-sass`,
         `gatsby-plugin-react-helmet`,
         {
             resolve: `gatsby-plugin-nprogress`,

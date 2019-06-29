@@ -5,9 +5,12 @@ import createMuiTheme from "@material-ui/core/styles/createMuiTheme";
 // A custom theme for this app
 const theme = createMuiTheme({
     palette: {
-        type: "light",
+        type: "dark",
         primary: grey,
         secondary: red,
+        background: {
+            default: "#000",
+        },
     },
     typography: {
         fontFamily: [

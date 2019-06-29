@@ -11,9 +11,8 @@ import Footer from "../components/Footer";
 const components = [Im, Name, Title];
 
 const IndexPage = () => {
-    const trails = useTrail(3, {
+    const trails = useTrail(components.length, {
         config: config.wobbly,
-        delay: 50,
         from: { opacity: 0, x: 50 },
         to: { opacity: 1, x: 0 },
     });

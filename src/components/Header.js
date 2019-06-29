@@ -4,6 +4,7 @@ import DrawerButton from "./Drawer/DrawerButton";
 import Box from "@material-ui/core/Box";
 import MuiLink from "@material-ui/core/Link";
 import { navigate } from "gatsby";
+import Logo from "./Logo";
 
 const Header = () => {
     const [show, setShow] = useState(false);
@@ -44,7 +45,15 @@ const Header = () => {
                     color="secondary"
                     onClick={handleClick("/", false)}
                 >
-                    Logo
+                    <Box
+                        clone
+                        height={{
+                            xs: 22,
+                            md: 25,
+                        }}
+                    >
+                        <Logo open={show} />
+                    </Box>
                 </MuiLink>
                 <DrawerButton onClick={showDrawer} open={show}>
                     Show

@@ -37,7 +37,7 @@ const Footer = () => {
                         </Typography>
                     </Box>
                     <Fab size="small">
-                        <ArrayIcon color="secondary" fontSize="small" />
+                        <ArrayIcon color="primary" fontSize="small" />
                     </Fab>
                 </Box>
             </Box>

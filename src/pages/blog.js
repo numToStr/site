@@ -48,7 +48,7 @@ const blog = () => {
                         xs: "h6.fontSize",
                         md: "h5.fontSize",
                     }}
-                    color="secondary.main"
+                    color="primary.main"
                     fontWeight="fontWeightBold"
                     display="block"
                     mb={1}

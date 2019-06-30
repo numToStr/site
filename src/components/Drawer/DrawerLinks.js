@@ -1,14 +1,7 @@
 import React from "react";
-import makeStyles from "@material-ui/styles/makeStyles";
 import Link from "@material-ui/core/Link";
 import Box from "@material-ui/core/Box";
 import { animated, useTrail, config } from "react-spring";
-
-const useStyles = makeStyles({
-    li: {
-        textTransform: "uppercase",
-    },
-});
 
 const links = [
     {
@@ -34,7 +27,6 @@ const links = [
 ];
 
 export default ({ open, onTap }) => {
-    const classes = useStyles();
     const trails = useTrail(links.length, {
         config: config.stiff,
         from: {
@@ -61,7 +53,7 @@ export default ({ open, onTap }) => {
                     xs: "h3.fontSize",
                     md: "h2.fontSize",
                 }}
-                className={classes.li}
+                className="text-uppercase"
                 style={{
                     opacity: opacity.interpolate([0, 0.7, 1], [0, 0.3, 1]),
                     transform: xy.interpolate(

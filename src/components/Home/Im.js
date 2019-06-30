@@ -1,18 +1,11 @@
 import React from "react";
 import Box from "@material-ui/core/Box";
 import { animated } from "react-spring";
-import makeStyles from "@material-ui/styles/makeStyles";
-
-const useStyles = makeStyles({
-    uCase: {
-        textTransform: "uppercase",
-    },
-});
 
 const Im = props => {
-    const classes = useStyles();
     return (
         <Box
+            className="text-uppercase"
             component={animated.div}
             fontSize={{
                 xs: "h5.fontSize",
@@ -24,7 +17,6 @@ const Im = props => {
             letterSpacing={{
                 sm: 1,
             }}
-            className={classes.uCase}
             {...props}
         >
             I'm

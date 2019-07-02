@@ -1,3 +1,6 @@
+const fetch = require("node-fetch");
+const { createHttpLink } = require("apollo-link-http");
+
 module.exports = {
     siteMetadata: {
         name: "Vikas Raj",
@@ -133,6 +136,21 @@ module.exports = {
                         },
                     },
                 ],
+            },
+        },
+        {
+            resolve: "gatsby-source-graphql",
+            options: {
+                fieldName: "github",
+                typeName: "Github",
+                createLink: () =>
+                    createHttpLink({
+                        uri: `https://api.github.com/graphql`,
+                        headers: {
+                            Authorization: `bearer ${process.env.GITHUB_TOKEN}`,
+                        },
+                        fetch,
+                    }),
             },
         },
         {

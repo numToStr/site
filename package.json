@@ -23,6 +23,7 @@
         "gatsby-remark-prismjs": "^3.3.0",
         "gatsby-remark-relative-images": "^0.2.2",
         "gatsby-source-filesystem": "^2.1.1",
+        "gatsby-source-graphql": "^2.1.0",
         "gatsby-transformer-remark": "^2.5.0",
         "gatsby-transformer-sharp": "^2.2.0",
         "node-sass": "^4.12.0",

@@ -82,8 +82,8 @@ export default ({ open, onTap }) => {
                 onMouseOver={handleHover(true)}
                 onMouseLeave={handleHover(false)}
                 style={{
-                    opacity: opacity.interpolate([0, 0.7, 1], [0, 0.3, 1]),
-                    transform: xy.interpolate(
+                    opacity: opacity.to([0, 0.7, 1], [0, 0.3, 1]),
+                    transform: xy.to(
                         (_x, _y) => `translate3d(${_x}%,${_y}px,0)`
                     ),
                     letterSpacing,

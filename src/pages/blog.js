@@ -36,9 +36,7 @@ const blog = () => {
                 component={animated.div}
                 style={{
                     opacity,
-                    transform: x.interpolate(
-                        x => `translate3d(${x}px,${x}px,0)`
-                    ),
+                    transform: x.to(x => `translate3d(${x}px,${x}px,0)`),
                 }}
             >
                 <Box

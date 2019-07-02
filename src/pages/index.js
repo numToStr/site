@@ -37,7 +37,7 @@ const IndexPage = () => {
                                 key={$i}
                                 style={{
                                     opacity,
-                                    transform: x.interpolate(
+                                    transform: x.to(
                                         x => `translate3d(0,${x}px,0)`
                                     ),
                                 }}

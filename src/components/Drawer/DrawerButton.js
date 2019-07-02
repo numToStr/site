@@ -45,7 +45,7 @@ const DrawerButton = ({ onClick, open }) => {
                     style={{
                         opacity,
                         backgroundColor: color,
-                        transform: xy.interpolate(
+                        transform: xy.to(
                             (_x, _y) => `translate3d(${_x}px,${_y}px,0)`
                         ),
                     }}

@@ -25,8 +25,8 @@ export default ({ open, children }) => {
             zIndex={1000}
             style={{
                 width: spring.x
-                    .interpolate([0, 0.2, 0.5, 1], [0, 50, 80, 100])
-                    .interpolate(x => `${x}%`),
+                    .to([0, 0.2, 0.5, 1], [0, 50, 80, 100])
+                    .to(x => `${x}%`),
             }}
         >
             {children}

@@ -7,6 +7,7 @@ import LinkIcon from "@material-ui/icons/ArrowForwardRounded";
 import { graphql } from "gatsby";
 import SEO from "../components/SEO";
 import ProjectCards from "../components/ProjectCards";
+import Bar from "../components/Bar";
 
 export const data = graphql`
     query {
@@ -55,13 +56,7 @@ const project = ({
                         <Typography variant="h3" paragraph>
                             Projects
                         </Typography>
-                        <Box
-                            width={100}
-                            height={2}
-                            bgcolor="text.primary"
-                            borderRadius="borderRadius"
-                            my={3}
-                        />
+                        <Bar />
                         <Box mb={4}>
                             <ProjectCards projects={pinnedItems.edges} />
                         </Box>

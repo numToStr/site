@@ -9,6 +9,7 @@ import Box from "@material-ui/core/Box";
 import Grid from "@material-ui/core/Grid";
 import { Link } from "gatsby";
 import { useTrail, config, animated } from "react-spring";
+import Bar from "../components/Bar";
 
 const blog = () => {
     const blogs = useBlogs();
@@ -76,13 +77,7 @@ const blog = () => {
                     <Typography variant="h3" paragraph>
                         Blog
                     </Typography>
-                    <Box
-                        width={100}
-                        height={2}
-                        bgcolor="text.primary"
-                        borderRadius="borderRadius"
-                        my={3}
-                    />
+                    <Bar />
                     {list}
                 </Grid>
             </Grid>

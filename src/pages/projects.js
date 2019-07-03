@@ -50,7 +50,7 @@ const project = ({
     return (
         <Fragment>
             <SEO title="Projects" />
-            <Box clone pb={8}>
+            <Box clone pb={2}>
                 <Grid container justify="center">
                     <Grid item xs={12} sm={8} md={6}>
                         <Typography variant="h3" paragraph>
@@ -64,7 +64,7 @@ const project = ({
                         <Box
                             clone
                             fontWeight="fontWeightBold"
-                            display="flex"
+                            display="inline-flex"
                             alignItems="center"
                         >
                             <Link

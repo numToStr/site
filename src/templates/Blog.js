@@ -7,7 +7,6 @@ import MuiLink from "@material-ui/core/Link";
 import DateFormat from "../components/DateFormat";
 import PreviousIcon from "@material-ui/icons/KeyboardArrowLeftRounded";
 import NextIcon from "@material-ui/icons/KeyboardArrowRightRounded";
-import { Typography } from "@material-ui/core";
 
 export const data = graphql`
     query($slug: String!) {
@@ -24,12 +23,12 @@ export const data = graphql`
 const PreviousComp = () => (
     <Fragment>
         <PreviousIcon />
-        <Typography variant="subtitle2">Previous</Typography>
+        Previous
     </Fragment>
 );
 const NextComp = () => (
     <Fragment>
-        <Typography variant="subtitle2">Next</Typography>
+        Next
         <NextIcon />
     </Fragment>
 );
@@ -95,20 +94,22 @@ const Blog = ({
                     <Box display="flex" justifyContent="space-between" pt={3}>
                         {navs.map(({ component: Comp, link }) =>
                             link ? (
-                                <MuiLink
+                                <Box
+                                    clone
                                     key={link}
-                                    component={Link}
-                                    to={`/blog/${link}`}
-                                    color="textPrimary"
+                                    display="flex"
+                                    alignItems="center"
+                                    lineHeight={1}
+                                    fontWeight="fontWeightBold"
                                 >
-                                    <Box
-                                        display="flex"
-                                        alignItems="center"
-                                        lineHeight={1}
+                                    <MuiLink
+                                        component={Link}
+                                        to={`/blog/${link}`}
+                                        color="textPrimary"
                                     >
                                         <Comp />
-                                    </Box>
-                                </MuiLink>
+                                    </MuiLink>
+                                </Box>
                             ) : (
                                 <div key={link} />
                             )

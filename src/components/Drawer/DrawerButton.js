@@ -1,27 +1,12 @@
 import React from "react";
 
-import { useTrail, animated, config } from "react-spring";
 import Box from "@material-ui/core/Box";
-import useTheme from "@material-ui/styles/useTheme";
+import { useStaggeredSlideIn } from "../Animation/useStaggeredSlideIn";
 
 const bars = [28, 20, 28];
 
-const DrawerButton = ({ onClick, open }) => {
-    const { palette } = useTheme();
-
-    const trails = useTrail(bars.length, {
-        from: {
-            color: palette.text.primary,
-            xy: [-10, 0],
-            opacity: 0,
-        },
-        to: {
-            color: open ? "#fff" : palette.text.primary,
-            xy: [0, 0],
-            opacity: 1,
-        },
-        config: config.wobbly,
-    });
+const DrawerButton = ({ onClick }) => {
+    const [trails, animated] = useStaggeredSlideIn(bars.length);
 
     return (
         <Box
@@ -34,7 +19,7 @@ const DrawerButton = ({ onClick, open }) => {
                 md: 0.5,
             }}
         >
-            {trails.map(({ color, xy, opacity }, $i) => (
+            {trails.map(({ x, opacity }, $i) => (
                 <Box
                     component={animated.div}
                     key={$i}
@@ -42,12 +27,10 @@ const DrawerButton = ({ onClick, open }) => {
                     height={3}
                     mb={0.5}
                     borderRadius="borderRadius"
+                    bgcolor="text.primary"
                     style={{
                         opacity,
-                        backgroundColor: color,
-                        transform: xy.to(
-                            (_x, _y) => `translate3d(${_x}px,${_y}px,0)`
-                        ),
+                        transform: x.to(_x => `translate3d(${_x}px,${_x}px,0)`),
                     }}
                 />
             ))}

@@ -8,21 +8,15 @@ import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import Grid from "@material-ui/core/Grid";
 import { Link } from "gatsby";
-import { useTrail, config, animated } from "react-spring";
 import Bar from "../components/Bar";
 import { useFadeIn } from "../components/Animation/useFadeIn";
+import { useStaggeredSlideIn } from "../components/Animation/useStaggeredSlideIn";
 
 const blog = () => {
     const blogs = useBlogs();
 
-    const [fadeIn, animated2] = useFadeIn();
-
-    const trails = useTrail(blogs.length, {
-        config: config.stiff,
-        delay: 50,
-        from: { x: -15, opacity: 0 },
-        to: { x: 0, opacity: 1 },
-    });
+    const [fadeIn, animated] = useFadeIn();
+    const [trails] = useStaggeredSlideIn(blogs.length);
 
     const list = trails.map(({ x, opacity }, $i) => {
         const {
@@ -40,7 +34,7 @@ const blog = () => {
                 component={animated.div}
                 style={{
                     opacity,
-                    transform: x.to(x => `translate3d(${x}px,${x}px,0)`),
+                    transform: x.to(_x => `translate3d(${_x}px,${_x}px,0)`),
                 }}
             >
                 <Box
@@ -77,7 +71,7 @@ const blog = () => {
             <SEO title="Blog" />
             <Grid
                 style={fadeIn}
-                component={animated2.div}
+                component={animated.div}
                 container
                 justify="center"
             >

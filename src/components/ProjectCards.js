@@ -3,12 +3,14 @@ import Link from "@material-ui/core/Link";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import WebIcon from "@material-ui/icons/PublicTwoTone";
+import { useStaggeredSlideIn } from "./Animation/useStaggeredSlideIn";
 
 const ProjectCard = ({
     project: { id, name, description, url, homepageUrl },
+    ...props
 }) => {
     return (
-        <Box key={id} mb={2}>
+        <Box {...props} key={id} mb={2}>
             <Box display="flex" alignItems="center">
                 <Box
                     fontSize={{
@@ -43,9 +45,23 @@ const ProjectCard = ({
 };
 
 const ProjectCards = ({ projects }) => {
-    return projects.map(project => (
-        <ProjectCard key={project.node.id} project={project.node} />
-    ));
+    const [trails, animated] = useStaggeredSlideIn(projects.length);
+
+    return trails.map(({ x, opacity }, $i) => {
+        const { node } = projects[$i];
+
+        return (
+            <ProjectCard
+                key={node.id}
+                component={animated.div}
+                style={{
+                    opacity,
+                    transform: x.to(_x => `translate3d(${_x}px,${_x}px,0)`),
+                }}
+                project={node}
+            />
+        );
+    });
 };
 
 export default ProjectCards;

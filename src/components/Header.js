@@ -55,7 +55,7 @@ const Header = () => {
                         <Logo />
                     </Box>
                 </MuiLink>
-                <DrawerButton onClick={showDrawer} open={show} />
+                <DrawerButton onClick={showDrawer} />
             </Box>
             <BaseDrawer open={show} onTap={handleClick} />
         </Fragment>

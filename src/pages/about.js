@@ -5,13 +5,18 @@ import useSiteMetadata from "../hooks/useSiteMetadata";
 import Box from "@material-ui/core/Box";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
+import { useFadeIn } from "../components/Animation/useFadeIn";
 
 const about = () => {
     const { about } = useSiteMetadata();
+    const [fadeIn, animated] = useFadeIn();
+
     return (
         <Fragment>
             <SEO title="About" />
             <Box
+                style={fadeIn}
+                component={animated.div}
                 height="100%"
                 display="flex"
                 alignItems={{

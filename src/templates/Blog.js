@@ -7,6 +7,7 @@ import MuiLink from "@material-ui/core/Link";
 import DateFormat from "../components/DateFormat";
 import PreviousIcon from "@material-ui/icons/KeyboardArrowLeftRounded";
 import NextIcon from "@material-ui/icons/KeyboardArrowRightRounded";
+import { useFadeIn } from "../components/Animation/useFadeIn";
 
 export const data = graphql`
     query($slug: String!) {
@@ -50,6 +51,8 @@ const Blog = ({
         [previous, next]
     );
 
+    const [fadeIn, animated] = useFadeIn();
+
     // To fixing the problem where gatsby link remembering the scroll position
     useEffect(() => {
         const htmlElem = document.querySelector("html");
@@ -66,7 +69,12 @@ const Blog = ({
     return (
         <Fragment>
             <SEO title={title} />
-            <Grid container justify="center">
+            <Grid
+                component={animated.div}
+                style={fadeIn}
+                container
+                justify="center"
+            >
                 <Grid item xs={12} sm={10} md={8}>
                     <Box
                         component="p"

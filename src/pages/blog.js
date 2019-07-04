@@ -10,9 +10,12 @@ import Grid from "@material-ui/core/Grid";
 import { Link } from "gatsby";
 import { useTrail, config, animated } from "react-spring";
 import Bar from "../components/Bar";
+import { useFadeIn } from "../components/Animation/useFadeIn";
 
 const blog = () => {
     const blogs = useBlogs();
+
+    const [fadeIn, animated2] = useFadeIn();
 
     const trails = useTrail(blogs.length, {
         config: config.stiff,
@@ -72,7 +75,12 @@ const blog = () => {
     return (
         <Fragment>
             <SEO title="Blog" />
-            <Grid container justify="center">
+            <Grid
+                style={fadeIn}
+                component={animated2.div}
+                container
+                justify="center"
+            >
                 <Grid item xs={12} sm={8} md={6}>
                     <Typography variant="h3" paragraph>
                         Blog

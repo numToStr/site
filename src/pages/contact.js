@@ -5,14 +5,18 @@ import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import MuiLink from "@material-ui/core/Link";
 import useSiteMetadata from "../hooks/useSiteMetadata";
+import { useFadeIn } from "../components/Animation/useFadeIn";
 
 const contact = () => {
     const { social } = useSiteMetadata();
+    const [fadeIn, animated] = useFadeIn();
 
     return (
         <Fragment>
             <SEO title="Contact" />
             <Box
+                style={fadeIn}
+                component={animated.div}
                 height="100%"
                 width="100%"
                 display="flex"

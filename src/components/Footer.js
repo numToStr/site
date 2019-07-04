@@ -4,12 +4,16 @@ import Typography from "@material-ui/core/Typography";
 import Fab from "@material-ui/core/Fab";
 import ArrayIcon from "@material-ui/icons/PlayArrowTwoTone";
 import { Link } from "gatsby";
+import { useFadeIn } from "./Animation/useFadeIn";
 
 const Footer = () => {
+    const [fadeIn, animated] = useFadeIn();
+
     return (
         <Fragment>
             <Box
-                component="header"
+                style={fadeIn}
+                component={animated.header}
                 position="fixed"
                 bottom={0}
                 left={0}

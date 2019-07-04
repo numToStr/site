@@ -53,13 +53,17 @@ module.exports = {
         {
             resolve: `gatsby-plugin-manifest`,
             options: {
-                name: `gatsby-starter-default`,
-                short_name: `vikasraj.dev`,
+                name: `Vikas Raj`,
+                short_name: `VR`,
+                description: "Personal portfolio and blog",
+                lang: "en",
                 start_url: `/`,
                 background_color: `#000`,
                 theme_color: `#000`,
-                display: `hello...`,
+                display: "standalone",
                 icon: `src/images/logo.jpg`, // This path is relative to the root of the site.
+                legacy: false,
+                include_favicon: false,
             },
         },
         {

@@ -8,6 +8,7 @@ import { graphql } from "gatsby";
 import SEO from "../components/SEO";
 import ProjectCards from "../components/ProjectCards";
 import Bar from "../components/Bar";
+import { useFadeIn } from "../components/Animation/useFadeIn";
 
 export const data = graphql`
     query {
@@ -47,11 +48,18 @@ const project = ({
         },
     },
 }) => {
+    const [fadeIn, animated] = useFadeIn();
+
     return (
         <Fragment>
             <SEO title="Projects" />
             <Box clone pb={2}>
-                <Grid container justify="center">
+                <Grid
+                    style={fadeIn}
+                    component={animated.div}
+                    container
+                    justify="center"
+                >
                     <Grid item xs={12} sm={8} md={6}>
                         <Typography variant="h3" paragraph>
                             Projects

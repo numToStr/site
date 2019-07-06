@@ -1,9 +1,9 @@
 import React from "react";
-import useTheme from "@material-ui/styles/useTheme";
 import { useFadeIn } from "./Animation/useFadeIn";
+import { useThemeContext } from "./ThemeContext";
 
 const Logo = ({ ...props }) => {
-    const { palette } = useTheme();
+    const { palette } = useThemeContext();
 
     const [fadeIn, animated] = useFadeIn();
 

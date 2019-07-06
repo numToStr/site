@@ -14,7 +14,7 @@ export default ({ open, children }) => {
         <Box
             component={animated.div}
             height="100%"
-            bgcolor="#000"
+            bgcolor="background.default"
             position="fixed"
             top={0}
             left={0}

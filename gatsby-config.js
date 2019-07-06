@@ -14,6 +14,14 @@ module.exports = {
         },
     },
     plugins: [
+        {
+            resolve: "gatsby-plugin-no-theme-flash",
+            options: {
+                storageKey: "theme-type",
+                lightClassName: "light",
+                darkClassName: "dark",
+            },
+        },
         "gatsby-plugin-top-layout",
         {
             resolve: `gatsby-plugin-material-ui`,

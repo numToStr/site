@@ -19,6 +19,15 @@ body,
     }
 }
 
+body {
+    &.dark {
+        background-color: #000;
+    }
+    &.light {
+        background-color: #fff;
+    }
+}
+
 a {
     outline: none !important;
 }

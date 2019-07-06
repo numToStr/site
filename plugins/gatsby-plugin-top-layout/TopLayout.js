@@ -3,9 +3,11 @@ import PropTypes from "prop-types";
 import { Helmet } from "react-helmet";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import ThemeProvider from "@material-ui/styles/ThemeProvider";
-import theme from "../../src/styles/theme.config";
+import { useThemeContext } from "../../src/components/ThemeContext";
 
 export default function TopLayout(props) {
+    const theme = useThemeContext();
+
     return (
         <React.Fragment>
             <Helmet>

@@ -48,7 +48,7 @@ export default ({ open, onTap }) => {
                 fontWeight="fontWeightBold"
                 lineHeight={1}
                 mb={3}
-                color="#fff"
+                color="text.primary"
                 fontSize={{
                     xs: "h3.fontSize",
                     md: "h2.fontSize",

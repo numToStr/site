@@ -5,6 +5,7 @@ import Box from "@material-ui/core/Box";
 import MuiLink from "@material-ui/core/Link";
 import { navigate } from "gatsby";
 import Logo from "./Logo";
+import ThemeToggle from "./ThemeToggle";
 
 const Header = () => {
     const [show, setShow] = useState(false);
@@ -30,6 +31,7 @@ const Header = () => {
                 zIndex="tooltip"
                 display="flex"
                 justifyContent="space-between"
+                alignItems="center"
                 py={{
                     xs: 2.5,
                     md: 3.5,
@@ -55,7 +57,10 @@ const Header = () => {
                         <Logo />
                     </Box>
                 </MuiLink>
-                <DrawerButton onClick={showDrawer} />
+                <Box display="flex" alignItems="center">
+                    <ThemeToggle />
+                    <DrawerButton onClick={showDrawer} />
+                </Box>
             </Box>
             <BaseDrawer open={show} onTap={handleClick} />
         </Fragment>

@@ -15,9 +15,8 @@ const DrawerButton = ({ onClick }) => {
             display="flex"
             flexDirection="column"
             alignItems="flex-end"
-            p={{
-                md: 0.5,
-            }}
+            ml={{ xs: 1.25, md: 2 }}
+            p={{ md: 0.5 }}
         >
             {trails.map(({ x, opacity }, $i) => (
                 <Box

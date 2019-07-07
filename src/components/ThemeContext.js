@@ -33,13 +33,18 @@ export const ThemeProvider = ({ children }) => {
     }, [paletteType]);
 
     useEffect(() => {
+        // This variable comes from no-theme-flash plugin
         const type = window.__theme;
 
         dispatch({ type });
 
+        const classList = document.body.classList;
         // Remove No Flash classes after initial reload
         // And let material-ui to handle theme changes after mount
-        document.body.classList.remove("light", "dark");
+        classList.remove("light", "dark");
+        // This will make smooth transitioning in light/dark mode after mount
+        // Dont' add this class directly through css otherwise it will make theme flash
+        classList.add("bg-transition");
     }, []);
 
     useEffect(() => {

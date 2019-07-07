@@ -1,12 +1,18 @@
 import React from "react";
-
 import Box from "@material-ui/core/Box";
 import { useStaggeredSlideIn } from "../Animation/useStaggeredSlideIn";
+import { useThemeContext } from "../ThemeContext";
 
 const bars = [28, 20, 28];
 
 const DrawerButton = ({ onClick }) => {
-    const [trails, animated] = useStaggeredSlideIn(bars.length);
+    const {
+        palette: { text },
+    } = useThemeContext();
+
+    const [trails, animated] = useStaggeredSlideIn(bars.length, {
+        to: { backgroundColor: text.primary },
+    });
 
     return (
         <Box
@@ -18,7 +24,7 @@ const DrawerButton = ({ onClick }) => {
             ml={{ xs: 1.25, md: 2 }}
             p={{ md: 0.5 }}
         >
-            {trails.map(({ x, opacity }, $i) => (
+            {trails.map(({ x, ...rest }, $i) => (
                 <Box
                     component={animated.div}
                     key={$i}
@@ -26,9 +32,8 @@ const DrawerButton = ({ onClick }) => {
                     height={3}
                     mb={0.6}
                     borderRadius="borderRadius"
-                    bgcolor="text.primary"
                     style={{
-                        opacity,
+                        ...rest,
                         transform: x.to(_x => `translate3d(${_x}px,${_x}px,0)`),
                     }}
                 />

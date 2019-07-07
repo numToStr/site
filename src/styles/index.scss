@@ -28,6 +28,10 @@ body {
     }
 }
 
+.bg-transition {
+    transition: background-color 0.2s ease-in-out;
+}
+
 a {
     outline: none !important;
 }

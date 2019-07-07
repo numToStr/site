@@ -23,7 +23,7 @@ const about = () => {
                     xs: "flex-start",
                     sm: "center",
                 }}
-                pb={8}
+                pb={5}
             >
                 <Grid container alignItems="center">
                     <Grid item xs={12} md={5}>

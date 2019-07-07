@@ -24,7 +24,7 @@ const DrawerButton = ({ onClick }) => {
                     key={$i}
                     width={bars[$i]}
                     height={3}
-                    mb={0.5}
+                    mb={0.6}
                     borderRadius="borderRadius"
                     bgcolor="text.primary"
                     style={{

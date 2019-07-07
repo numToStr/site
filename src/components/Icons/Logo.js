@@ -1,6 +1,6 @@
 import React from "react";
-import { useFadeIn } from "./Animation/useFadeIn";
-import { useThemeContext } from "./ThemeContext";
+import { useFadeIn } from "../Animation/useFadeIn";
+import { useThemeContext } from "../ThemeContext";
 
 const Logo = ({ ...props }) => {
     const { palette } = useThemeContext();

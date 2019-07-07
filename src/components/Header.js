@@ -4,7 +4,7 @@ import DrawerButton from "./Drawer/DrawerButton";
 import Box from "@material-ui/core/Box";
 import MuiLink from "@material-ui/core/Link";
 import { navigate } from "gatsby";
-import Logo from "./Logo";
+import Logo from "./Icons/Logo";
 import ThemeToggle from "./ThemeToggle";
 
 const Header = () => {

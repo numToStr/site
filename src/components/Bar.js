@@ -1,7 +1,7 @@
 import React from "react";
 import Box from "@material-ui/core/Box";
 
-const Bar = () => {
+const Bar = props => {
     return (
         <Box
             width={100}
@@ -9,6 +9,7 @@ const Bar = () => {
             bgcolor="text.primary"
             borderRadius="borderRadius"
             my={3}
+            {...props}
         />
     );
 };

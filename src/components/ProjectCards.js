@@ -1,9 +1,10 @@
-import React from "react";
+import React, { memo } from "react";
 import Link from "@material-ui/core/Link";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import WebIcon from "@material-ui/icons/PublicTwoTone";
 import { useStaggeredSlideIn } from "./Animation/useStaggeredSlideIn";
+import ListTitle from "./ListTitle";
 
 const ProjectCard = ({
     project: { id, name, description, url, homepageUrl },
@@ -12,15 +13,7 @@ const ProjectCard = ({
     return (
         <Box {...props} key={id} mb={2}>
             <Box display="flex" alignItems="center">
-                <Box
-                    fontSize={{
-                        xs: "h6.fontSize",
-                        md: "h5.fontSize",
-                    }}
-                    color="primary.main"
-                    fontWeight="fontWeightBold"
-                    clone
-                >
+                <ListTitle clone>
                     <Link
                         href={url}
                         target="_blank"
@@ -29,7 +22,7 @@ const ProjectCard = ({
                     >
                         {name}
                     </Link>
-                </Box>
+                </ListTitle>
                 <Link
                     href={homepageUrl}
                     target="_blank"
@@ -47,7 +40,7 @@ const ProjectCard = ({
 const ProjectCards = ({ projects }) => {
     const [trails, animated] = useStaggeredSlideIn(projects.length);
 
-    return trails.map(({ x, opacity }, $i) => {
+    return trails.map(({ x, ...props }, $i) => {
         const { node } = projects[$i];
 
         return (
@@ -55,7 +48,7 @@ const ProjectCards = ({ projects }) => {
                 key={node.id}
                 component={animated.div}
                 style={{
-                    opacity,
+                    ...props,
                     transform: x.to(_x => `translate3d(${_x}px,${_x}px,0)`),
                 }}
                 project={node}
@@ -64,4 +57,4 @@ const ProjectCards = ({ projects }) => {
     });
 };
 
-export default ProjectCards;
+export default memo(ProjectCards);

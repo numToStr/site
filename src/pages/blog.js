@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
+import Box from "@material-ui/core/Box";
 import SEO from "../components/SEO";
 import useBlogs from "../hooks/useBlogs";
 import Bar from "../components/Bar";
@@ -15,20 +16,22 @@ const blog = () => {
     return (
         <Fragment>
             <SEO title="Blog" />
-            <Grid
-                style={fadeIn}
-                component={animated.div}
-                container
-                justify="center"
-            >
-                <Grid item xs={12} sm={8} md={6}>
-                    <Typography variant="h3" paragraph>
-                        Blog
-                    </Typography>
-                    <Bar />
-                    <BlogCards blogs={blogs} />
+            <Box clone pb={2}>
+                <Grid
+                    style={fadeIn}
+                    component={animated.div}
+                    container
+                    justify="center"
+                >
+                    <Grid item xs={12} sm={8} md={6}>
+                        <Typography variant="h3" paragraph>
+                            Blog
+                        </Typography>
+                        <Bar />
+                        <BlogCards blogs={blogs} />
+                    </Grid>
                 </Grid>
-            </Grid>
+            </Box>
         </Fragment>
     );
 };

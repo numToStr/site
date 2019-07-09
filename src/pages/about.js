@@ -106,6 +106,7 @@ const about = () => {
                                     component={Link}
                                     to="/blog"
                                     underline="always"
+                                    color="textPrimary"
                                 >
                                     my blog
                                 </MuiLink>

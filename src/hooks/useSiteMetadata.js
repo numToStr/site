@@ -8,7 +8,6 @@ function useSiteMetadata() {
                     name
                     author
                     title
-                    about
                     description
                     social {
                         twitter

@@ -6,7 +6,6 @@ module.exports = {
         name: "Vikas Raj",
         title: `Full Stack Developer`,
         description: `Full Stack Developer who loves to make new things.`,
-        about: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis accusamus dolore excepturi cum vero, nulla consectetur aliquam deserunt aut doloribus sed ratione magnam vitae deleniti id, delectus expedita maxime iste maiores aperiam voluptatem at libero nihil tempora. Ullam natus, error possimus dignissimos cum delectus corrupti aliquam nulla ut nesciunt molestiae illum tempore quo consequuntur nihil praesentium. Unde odio laborum repudiandae. vero, nulla consectetur aliquam deserunt aut doloribus sed ratione magnam vitae deleniti id, delectus expedita maxime iste maiores aperiam voluptatem at libero nihil tempora. Ullam natus, error possimus dignissimos cum delectus corrupti aliquam nulla ut nesciunt molestiae illum tempore quo consequuntur nihil praesentium. Unde odio laborum repudiandae.`,
         author: `@numToStr`,
         social: {
             twitter: "numToStr",

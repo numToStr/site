@@ -3,15 +3,15 @@ import Typography from "@material-ui/core/Typography";
 import DateIcon from "@material-ui/icons/DateRangeTwoTone";
 import Box from "@material-ui/core/Box";
 
-const DateFormat = ({ date, margin, ...props }) => {
+const DateFormat = ({ date }) => {
     const formatted = new Date(date).toDateString();
 
     return (
-        <Box display="flex" alignItems="center" {...margin}>
+        <Box display="flex" alignItems="center" mr={1}>
             <Box mr={0.5} lineHeight={1}>
                 <DateIcon fontSize="small" />
             </Box>
-            <Typography {...props}>{formatted}</Typography>
+            <Typography variant="caption">{formatted}</Typography>
         </Box>
     );
 };

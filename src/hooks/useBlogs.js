@@ -10,6 +10,7 @@ function useBlogs() {
             ) {
                 edges {
                     node {
+                        timeToRead
                         frontmatter {
                             title
                             date

@@ -5,27 +5,25 @@ import { Link } from "gatsby";
 import { useStaggeredSlideIn } from "./Animation/useStaggeredSlideIn";
 import DateFormat from "../components/DateFormat";
 import ListTitle from "./ListTitle";
+import TimeToRead from "./TimeToRead";
 
 const BlogCard = ({
     blog: {
+        timeToRead,
         frontmatter: { title, date },
         excerpt,
         fields: { slug },
     },
     ...props
 }) => (
-    <Box {...props} mb={2}>
+    <Box {...props} mb={3}>
         <ListTitle clone display="inline-block" mb={1}>
             <Link to={`/blog/${slug}`}>{title}</Link>
         </ListTitle>
-        <DateFormat
-            date={date}
-            component="p"
-            variant="caption"
-            margin={{
-                mb: 1,
-            }}
-        />
+        <Box mb={1} display="flex">
+            <DateFormat date={date} />
+            <TimeToRead time={timeToRead} />
+        </Box>
         <Typography variant="body2">{excerpt}</Typography>
     </Box>
 );

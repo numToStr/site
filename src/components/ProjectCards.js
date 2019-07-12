@@ -7,11 +7,11 @@ import { useStaggeredSlideIn } from "./Animation/useStaggeredSlideIn";
 import ListTitle from "./ListTitle";
 
 const ProjectCard = ({
-    project: { id, name, description, url, homepageUrl },
+    project: { name, description, url, homepageUrl },
     ...props
 }) => {
     return (
-        <Box {...props} key={id} mb={2}>
+        <Box {...props} mb={3}>
             <Box display="flex" alignItems="center">
                 <ListTitle clone>
                     <Link

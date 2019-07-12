@@ -1,17 +1,19 @@
 import React, { Fragment, useMemo, useEffect } from "react";
 import { graphql, Link } from "gatsby";
-import SEO from "../components/SEO";
 import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
 import MuiLink from "@material-ui/core/Link";
-import DateFormat from "../components/DateFormat";
 import PreviousIcon from "@material-ui/icons/KeyboardArrowLeftRounded";
 import NextIcon from "@material-ui/icons/KeyboardArrowRightRounded";
+import SEO from "../components/SEO";
 import { useFadeIn } from "../components/Animation/useFadeIn";
+import DateFormat from "../components/DateFormat";
+import TimeToRead from "../components/TimeToRead";
 
 export const data = graphql`
     query($slug: String!) {
         markdownRemark(fields: { slug: { eq: $slug } }) {
+            timeToRead
             frontmatter {
                 title
                 date
@@ -37,6 +39,7 @@ const NextComp = () => (
 const Blog = ({
     data: {
         markdownRemark: {
+            timeToRead,
             frontmatter: { title, date },
             html,
         },
@@ -90,9 +93,12 @@ const Blog = ({
                     >
                         {title}
                     </Box>
-                    <DateFormat date={date} variant="body2" />
+                    <Box display="flex">
+                        <DateFormat date={date} />
+                        <TimeToRead time={timeToRead} />
+                    </Box>
                     <Box
-                        pt={1}
+                        pt={2}
                         fontSize={{
                             xs: "body2.fontSize",
                             md: "body1.fontSize",

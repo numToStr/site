@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import Typography from "@material-ui/core/Typography";
 import DateIcon from "@material-ui/icons/DateRangeTwoTone";
 import Box from "@material-ui/core/Box";
@@ -22,4 +22,4 @@ const DateFormat = ({ date }) => {
     );
 };
 
-export default DateFormat;
+export default memo(DateFormat);

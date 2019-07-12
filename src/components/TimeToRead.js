@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import SandGlassIcon from "./Icons/SandGlassIcon";
@@ -14,4 +14,4 @@ const TimeToRead = ({ time }) => {
     );
 };
 
-export default TimeToRead;
+export default memo(TimeToRead);

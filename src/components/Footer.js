@@ -1,6 +1,7 @@
 import React, { Fragment, memo } from "react";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
+import MuiLink from "@material-ui/core/Link";
 import Fab from "@material-ui/core/Fab";
 import ArrayIcon from "@material-ui/icons/PlayArrowTwoTone";
 import { Link } from "gatsby";
@@ -29,20 +30,15 @@ const Footer = () => {
                     md: 4,
                 }}
             >
-                <Box
-                    component={Link}
-                    to="/blog"
-                    display="flex"
-                    alignItems="center"
-                >
-                    <Box lineHeight={1} px={1}>
-                        <Typography variant="body2" color="textPrimary">
-                            Blog
-                        </Typography>
-                    </Box>
-                    <Fab size="small">
-                        <ArrayIcon color="primary" fontSize="small" />
-                    </Fab>
+                <Box clone display="flex" alignItems="center">
+                    <MuiLink component={Link} to="/blog" color="textPrimary">
+                        <Box lineHeight={1} px={1}>
+                            <Typography variant="body2">Blog</Typography>
+                        </Box>
+                        <Fab size="small">
+                            <ArrayIcon color="primary" fontSize="small" />
+                        </Fab>
+                    </MuiLink>
                 </Box>
             </Box>
         </Fragment>

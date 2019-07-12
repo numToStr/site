@@ -66,11 +66,11 @@ const contact = () => {
                     </Typography>
                     <Box mb={2} display="flex" alignItems="center">
                         <MuiLink
-                            href="mailto:sudo@vikasraj.dev"
+                            href={`mailto:${social.email}`}
                             variant="body1"
                             color="textPrimary"
                         >
-                            sudo@vikasraj.dev
+                            {social.email}
                         </MuiLink>
                         <Box clone ml={1}>
                             <MailIcon fontSize="small" />

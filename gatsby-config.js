@@ -10,6 +10,7 @@ module.exports = {
         social: {
             twitter: "numToStr",
             github: "vkasraj",
+            email: "sudo@vikasraj.dev",
         },
     },
     plugins: [

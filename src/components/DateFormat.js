@@ -3,8 +3,14 @@ import Typography from "@material-ui/core/Typography";
 import DateIcon from "@material-ui/icons/DateRangeTwoTone";
 import Box from "@material-ui/core/Box";
 
+const options = {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+};
+
 const DateFormat = ({ date }) => {
-    const formatted = new Date(date).toDateString();
+    const formatted = new Date(date).toLocaleDateString("en-US", options);
 
     return (
         <Box display="flex" alignItems="center" mr={1}>

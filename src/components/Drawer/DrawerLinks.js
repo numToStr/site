@@ -2,6 +2,7 @@ import React from "react";
 import Link from "@material-ui/core/Link";
 import Box from "@material-ui/core/Box";
 import { animated, useTrail, config } from "react-spring";
+import AnimatedText from "../AnimatedText";
 
 const links = [
     {
@@ -47,7 +48,7 @@ export default ({ open, onTap }) => {
                 component={animated.div}
                 fontWeight="fontWeightBold"
                 lineHeight={1}
-                mb={3}
+                my={2}
                 color="text.primary"
                 fontSize={{
                     xs: "h3.fontSize",
@@ -68,7 +69,7 @@ export default ({ open, onTap }) => {
                     data-href={curr.to}
                     href={curr.to}
                 >
-                    {curr.text}
+                    <AnimatedText text={curr.text} />
                 </Link>
             </Box>
         );

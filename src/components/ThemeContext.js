@@ -53,7 +53,7 @@ export const ThemeProvider = ({ children }) => {
     }, [paletteType]);
 
     return (
-        <ThemeContext.Provider value={theme}>
+        <ThemeContext.Provider value={{ paletteType, ...theme }}>
             <ThemeDispatch.Provider value={dispatch}>
                 {children}
             </ThemeDispatch.Provider>

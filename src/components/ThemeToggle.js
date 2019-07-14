@@ -7,10 +7,10 @@ import { useThemeDispatch, useThemeContext } from "./ThemeContext";
 import { useToggleAnimation } from "./Animation/useToggleAnimation";
 
 const ThemeToggle = () => {
-    const { palette } = useThemeContext();
+    const { paletteType } = useThemeContext();
     const dispatch = useThemeDispatch();
 
-    const isDark = useMemo(() => palette.type === "dark", [palette.type]);
+    const isDark = useMemo(() => paletteType === "dark", [paletteType]);
     const changeTheme = useCallback(() => {
         dispatch({ type: isDark ? "light" : "dark" });
     }, [isDark, dispatch]);

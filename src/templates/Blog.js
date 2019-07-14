@@ -3,12 +3,31 @@ import { graphql, Link } from "gatsby";
 import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
 import MuiLink from "@material-ui/core/Link";
+import styled from "@material-ui/styles/styled";
 import PreviousIcon from "@material-ui/icons/KeyboardArrowLeftRounded";
 import NextIcon from "@material-ui/icons/KeyboardArrowRightRounded";
 import SEO from "../components/SEO";
 import { useFadeIn } from "../components/Animation/useFadeIn";
 import DateFormat from "../components/DateFormat";
 import TimeToRead from "../components/TimeToRead";
+
+const StyledBox = styled(Box)(
+    ({
+        theme: {
+            spacing,
+            palette: { primary, text },
+        },
+    }) => ({
+        "& a": {
+            color: text.primary,
+        },
+        "& blockquote": {
+            margin: 0,
+            padding: spacing(0.5, 2),
+            borderLeft: `3px solid ${primary.main}`,
+        },
+    })
+);
 
 export const data = graphql`
     query($slug: String!) {
@@ -97,7 +116,7 @@ const Blog = ({
                         <DateFormat date={date} />
                         <TimeToRead time={timeToRead} />
                     </Box>
-                    <Box
+                    <StyledBox
                         pt={2}
                         fontSize={{
                             xs: "body2.fontSize",

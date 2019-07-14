@@ -20,16 +20,6 @@ const themeConfig = type => {
                 default: isDark ? "#000" : "#fff",
             },
         },
-        overrides: {
-            MuiFab: {
-                root: {
-                    borderWidth: "1px",
-                    borderStyle: "solid",
-                    borderColor: isDark ? dPrimary : lPrimary,
-                    backgroundColor: isDark ? "#000" : "#fff",
-                },
-            },
-        },
         typography: {
             fontFamily: [
                 "Roboto Mono",

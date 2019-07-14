@@ -2,9 +2,9 @@ import React, { Fragment, memo } from "react";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import MuiLink from "@material-ui/core/Link";
-import Fab from "@material-ui/core/Fab";
 import ArrayIcon from "@material-ui/icons/PlayArrowTwoTone";
 import { Link } from "gatsby";
+import CustomFab from "./CustomFab";
 import { useFadeIn } from "./Animation/useFadeIn";
 
 const Footer = () => {
@@ -35,9 +35,9 @@ const Footer = () => {
                         <Box lineHeight={1} px={1}>
                             <Typography variant="body2">Blog</Typography>
                         </Box>
-                        <Fab size="small">
+                        <CustomFab size="small">
                             <ArrayIcon color="primary" fontSize="small" />
-                        </Fab>
+                        </CustomFab>
                     </MuiLink>
                 </Box>
             </Box>

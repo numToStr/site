@@ -1,25 +1,32 @@
 import createMuiTheme from "@material-ui/core/styles/createMuiTheme";
 
+const dPrimary = "#7fffd4";
+const lPrimary = "#ff1744";
+
 // A custom theme for this app
 const themeConfig = type => {
+    const isDark = type === "dark";
     return createMuiTheme({
         palette: {
             type,
             primary: {
-                main: "#ff1744", // real red
+                main: isDark ? dPrimary : lPrimary,
                 // main: "#00e676", // green
             },
             secondary: {
                 main: "#ff0",
             },
             background: {
-                default: type === "dark" ? "#000" : "#fff",
+                default: isDark ? "#000" : "#fff",
             },
         },
         overrides: {
             MuiFab: {
                 root: {
-                    backgroundColor: type === "dark" ? "#fff" : "#ddd",
+                    borderWidth: "1px",
+                    borderStyle: "solid",
+                    borderColor: isDark ? dPrimary : lPrimary,
+                    backgroundColor: isDark ? "#000" : "#fff",
                 },
             },
         },

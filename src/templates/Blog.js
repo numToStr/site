@@ -15,11 +15,11 @@ const StyledBox = styled(Box)(
     ({
         theme: {
             spacing,
-            palette: { primary, text },
+            palette: { primary },
         },
     }) => ({
         "& a": {
-            color: text.primary,
+            color: primary.main,
         },
         "& blockquote": {
             margin: 0,

@@ -8,7 +8,7 @@ Often time working on a full stack project can be intimidating. I often found my
 This will be two part series where we look at different approaches to run React and Node.js in development environment.
 
 -   [Connecting](#proxy-connection) & [Running with Concurrently](#using-concurrently) (this post)
--   Using Docker (coming soon)
+-   [Using Docker](/blog/running-react-node-docker) (second post)
 
 <a name="proxy-connection"></a>
 
@@ -119,4 +119,4 @@ $ npm run dev
 
 Using concurrently is perfectly fine for most of the developer (this is also the same approach which I used initially). But It has one problem that I find annoying which is **folder structure** (might be different for you).
 
-In the second post we'll be looking at docker method. So, If you don't know docker just stay here.
+In the [second post](/blog/running-react-node-docker) we'll be looking at the docker way. So, If you don't know docker just stay here.

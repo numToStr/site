@@ -111,6 +111,19 @@ To make concurrently work with React and Node, we have to add some script in `pa
 }
 ```
 
+Finally, we'll have a folder structure somewhat like this.
+
+```bash
+> awesome_project
+    > node_modules
+    > client # This is our react front-end and else will be our node.js backend
+        > node_modules
+        > src
+        - package.json
+    - index.js
+    - package.json
+```
+
 Now `dev` script will run both React and Node.js app in our project and the [proxy](#proxy-connection) will connect both of them.
 
 ```bash

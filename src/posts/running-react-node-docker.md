@@ -108,8 +108,9 @@ Finally, we'll have a folder structure somewhat like this.
         - Dockerfile
         - package.json
     > server # This is our Node.js server
-        - node_modules
+        > node_modules
         - index.js
+        - Dockerfile
         - package.json
     - docker-compose.yml
 ```

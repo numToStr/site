@@ -7,6 +7,7 @@ module.exports = {
         title: `Full Stack Developer`,
         description: `Full Stack Developer who loves to make new things.`,
         author: `@numToStr`,
+        siteUrl: `https://vikasraj.dev`,
         social: {
             twitter: "numToStr",
             github: "vkasraj",
@@ -176,6 +177,9 @@ module.exports = {
         // },
         {
             resolve: "gatsby-plugin-no-sourcemaps",
+        },
+        {
+            resolve: "gatsby-plugin-sitemap",
         },
         // this (optional) plugin enables Progressive Web App + Offline functionality
         // To learn more, visit: https://gatsby.dev/offline

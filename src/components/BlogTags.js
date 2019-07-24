@@ -1,5 +1,7 @@
 import React from "react";
-import { Chip, Box, Typography } from "@material-ui/core";
+import Typography from "@material-ui/core/Typography";
+import Chip from "@material-ui/core/Chip";
+import Box from "@material-ui/core/Box";
 
 const BlogTags = ({ tags = [] }) => {
     let tagList = null;

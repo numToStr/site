@@ -16,7 +16,7 @@ const blog = () => {
     return (
         <Fragment>
             <SEO title="Blog" />
-            <Box clone pb={2}>
+            <Box clone pb={8}>
                 <Grid
                     style={fadeIn}
                     component={animated.div}

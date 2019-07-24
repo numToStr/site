@@ -150,6 +150,7 @@ module.exports = {
                 ],
             },
         },
+        `gatsby-plugin-catch-links`,
         {
             resolve: "gatsby-source-graphql",
             options: {

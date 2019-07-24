@@ -1,6 +1,7 @@
 ---
 title: My quest to find the perfect IDE
 date: 2019-06-10
+tags: ["atom", "vscode", "editor", "text editor", "ide"]
 ---
 
 When I started into coding, I used brackets which really sucks (please don't yell at me).

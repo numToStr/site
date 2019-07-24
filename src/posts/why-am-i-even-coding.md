@@ -1,6 +1,7 @@
 ---
 title: Why am I even coding?
 date: 2019-06-06
+tags: ["career", "coding", "code"]
 ---
 
 I am commerce graduate but was not happy studying commerce. When I was a student I love science and tech stuff but was unable to make it through the science stream in my high school as my grades were not great.

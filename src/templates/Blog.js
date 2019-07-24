@@ -10,6 +10,8 @@ import SEO from "../components/SEO";
 import { useFadeIn } from "../components/Animation/useFadeIn";
 import DateFormat from "../components/DateFormat";
 import TimeToRead from "../components/TimeToRead";
+import BlogTags from "../components/BlogTags";
+import Bar from "../components/Bar";
 
 const StyledBox = styled(Box)(
     ({
@@ -36,6 +38,7 @@ export const data = graphql`
             frontmatter {
                 title
                 date
+                tags
             }
             html
         }
@@ -59,7 +62,7 @@ const Blog = ({
     data: {
         markdownRemark: {
             timeToRead,
-            frontmatter: { title, date },
+            frontmatter: { title, date, tags },
             html,
         },
     },
@@ -117,13 +120,15 @@ const Blog = ({
                         <TimeToRead time={timeToRead} />
                     </Box>
                     <StyledBox
-                        pt={2}
+                        py={2}
                         fontSize={{
                             xs: "body2.fontSize",
                             md: "body1.fontSize",
                         }}
                         dangerouslySetInnerHTML={{ __html: html }}
                     />
+                    <Bar width="100%" my={2} />
+                    <BlogTags tags={tags} />
                     <Box display="flex" justifyContent="space-between" pt={3}>
                         {navs.map(({ component: Comp, link }) =>
                             link ? (

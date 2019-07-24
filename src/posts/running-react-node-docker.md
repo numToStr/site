@@ -1,6 +1,7 @@
 ---
 title: Running React and Node.js in one shot with Docker!
 date: 2019-07-23
+tags: ["node", "nodejs", "npm", "docker", "react", "reactjs", "workflow"]
 ---
 
 This is the second part of my previous post. If you haven't read my first post, please check it out as it serves as a base for this part.

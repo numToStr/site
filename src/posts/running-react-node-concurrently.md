@@ -1,6 +1,17 @@
 ---
 title: Running React and Node.js in one shot with Concurrently!
 date: 2019-07-22
+tags:
+    [
+        "node",
+        "nodejs",
+        "npm",
+        "package",
+        "concurrently",
+        "react",
+        "reactjs",
+        "workflow",
+    ]
 ---
 
 Often time working on a full stack project can be intimidating. I often found myself in the same situation whether it is a personal or proffesional project. When I started to work with React and Node.js, the first question that just came up was, How do I even **connect** and **run** these two together?

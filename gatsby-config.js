@@ -11,6 +11,7 @@ module.exports = {
         social: {
             twitter: "numToStr",
             github: "vkasraj",
+            devto: "numtostr",
             email: "sudo@vikasraj.dev",
         },
     },

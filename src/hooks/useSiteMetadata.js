@@ -12,6 +12,7 @@ function useSiteMetadata() {
                     social {
                         twitter
                         github
+                        devto
                         email
                     }
                 }

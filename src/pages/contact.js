@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useMemo } from "react";
 
 import SEO from "../components/SEO";
 import Box from "@material-ui/core/Box";
@@ -9,10 +9,32 @@ import { useFadeIn } from "../components/Animation/useFadeIn";
 import TwitterLogo from "../components/Icons/TwitterIcon";
 import GithubLogo from "../components/Icons/GithubIcon";
 import MailIcon from "../components/Icons/MailIcon";
+import DevToIcon from "../components/Icons/DevToIcon";
 
 const contact = () => {
     const { social } = useSiteMetadata();
     const [fadeIn, animated] = useFadeIn();
+
+    const socialLinks = useMemo(
+        () => [
+            {
+                url: `https://twitter.com/${social.twitter}`,
+                text: "twitter",
+                icon: TwitterLogo,
+            },
+            {
+                url: `https://github.com/${social.github}`,
+                text: "github",
+                icon: GithubLogo,
+            },
+            {
+                url: `https://dev.to/${social.devto}`,
+                text: "dev.to",
+                icon: DevToIcon,
+            },
+        ],
+        [social]
+    );
 
     return (
         <Fragment>
@@ -30,34 +52,27 @@ const contact = () => {
                     <Typography variant="h5" paragraph>
                         You can find me on...
                     </Typography>
-                    <Box mb={2} display="flex" alignItems="center">
-                        <MuiLink
-                            href={`https://twitter.com/${social.twitter}`}
-                            color="textPrimary"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            variant="body1"
+                    {socialLinks.map(link => (
+                        <Box
+                            key={link.text}
+                            mb={2}
+                            display="flex"
+                            alignItems="center"
                         >
-                            twitter
-                        </MuiLink>
-                        <Box clone ml={1}>
-                            <TwitterLogo fontSize="small" />
+                            <MuiLink
+                                href={link.url}
+                                color="textPrimary"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                variant="body1"
+                            >
+                                {link.text}
+                            </MuiLink>
+                            <Box clone ml={1}>
+                                <link.icon fontSize="small" />
+                            </Box>
                         </Box>
-                    </Box>
-                    <Box mb={2} display="flex" alignItems="center">
-                        <MuiLink
-                            href={`https://github.com/${social.github}`}
-                            color="textPrimary"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            variant="body1"
-                        >
-                            github
-                        </MuiLink>
-                        <Box clone ml={1}>
-                            <GithubLogo fontSize="small" />
-                        </Box>
-                    </Box>
+                    ))}
                     <Typography align="center" paragraph>
                         -- or --
                     </Typography>

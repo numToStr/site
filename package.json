@@ -7,7 +7,7 @@
         "@material-ui/core": "^4.2.1",
         "@material-ui/icons": "^4.2.1",
         "@material-ui/styles": "^4.2.1",
-        "gatsby": "^2.13.39",
+        "gatsby": "^2.13.41",
         "gatsby-plugin-catch-links": "^2.1.2",
         "gatsby-plugin-manifest": "^2.2.4",
         "gatsby-plugin-material-ui": "^2.1.4",

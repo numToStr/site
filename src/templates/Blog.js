@@ -1,17 +1,15 @@
 import React, { Fragment, useMemo, useEffect } from "react";
-import { graphql, Link } from "gatsby";
+import { graphql } from "gatsby";
 import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
-import MuiLink from "@material-ui/core/Link";
 import styled from "@material-ui/styles/styled";
-import PreviousIcon from "@material-ui/icons/KeyboardArrowLeftRounded";
-import NextIcon from "@material-ui/icons/KeyboardArrowRightRounded";
 import SEO from "../components/SEO";
 import { useFadeIn } from "../components/Animation/useFadeIn";
 import DateFormat from "../components/DateFormat";
 import TimeToRead from "../components/TimeToRead";
 import BlogTags from "../components/BlogTags";
 import Bar from "../components/Bar";
+import NavigationLink from "../components/NavigationLink";
 
 const StyledBox = styled(Box)(
     ({
@@ -45,19 +43,6 @@ export const data = graphql`
     }
 `;
 
-const PreviousComp = () => (
-    <Fragment>
-        <PreviousIcon />
-        Previous
-    </Fragment>
-);
-const NextComp = () => (
-    <Fragment>
-        Next
-        <NextIcon />
-    </Fragment>
-);
-
 const Blog = ({
     data: {
         markdownRemark: {
@@ -70,8 +55,8 @@ const Blog = ({
 }) => {
     const navs = useMemo(
         () => [
-            { component: PreviousComp, link: previous },
-            { component: NextComp, link: next },
+            { text: "Previous", to: previous, type: "previous" },
+            { text: "Next", to: next, type: "next" },
         ],
         [previous, next]
     );
@@ -130,26 +115,11 @@ const Blog = ({
                     <Bar width="100%" my={2} />
                     <BlogTags tags={tags} />
                     <Box display="flex" justifyContent="space-between" pt={3}>
-                        {navs.map(({ component: Comp, link }) =>
-                            link ? (
-                                <Box
-                                    clone
-                                    key={link}
-                                    display="flex"
-                                    alignItems="center"
-                                    lineHeight={1}
-                                    fontWeight="fontWeightBold"
-                                >
-                                    <MuiLink
-                                        component={Link}
-                                        to={`/blog/${link}`}
-                                        color="textPrimary"
-                                    >
-                                        <Comp />
-                                    </MuiLink>
-                                </Box>
+                        {navs.map(nav =>
+                            nav.to ? (
+                                <NavigationLink {...nav} />
                             ) : (
-                                <div key={link} />
+                                <div key={nav.to} />
                             )
                         )}
                     </Box>

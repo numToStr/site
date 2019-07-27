@@ -27,6 +27,7 @@ module.exports.onCreateNode = ({ node, actions }) => {
 exports.createPages = async ({ graphql, actions }) => {
     const { createPage } = actions;
     const blogTemplate = path.resolve(__dirname, "src/templates/Blog.js");
+    const tagTemplate = path.resolve(__dirname, "src/templates/Tag.js");
 
     const { data } = await graphql(`
         query {
@@ -48,16 +49,22 @@ exports.createPages = async ({ graphql, actions }) => {
                         fields {
                             slug
                         }
+                        frontmatter {
+                            tags
+                        }
                     }
                 }
             }
         }
     `);
 
+    let tags = [];
     data.allMarkdownRemark.edges.forEach(
-        ({ node: { fields }, previous, next }) => {
+        ({ node: { fields, frontmatter }, previous, next }) => {
             const _previous = previous ? previous.fields.slug : null;
             const _next = next ? next.fields.slug : null;
+
+            tags = tags.concat(frontmatter.tags);
 
             createPage({
                 component: blogTemplate,
@@ -70,4 +77,23 @@ exports.createPages = async ({ graphql, actions }) => {
             });
         }
     );
+
+    // Removing unique values
+    tags = new Set(tags);
+
+    const kebabCase = text =>
+        String(text)
+            .toLowerCase()
+            .replace(/ /g, "_");
+
+    // Make tag pages
+    tags.forEach(tag => {
+        createPage({
+            path: `/tags/${kebabCase(tag)}/`,
+            component: tagTemplate,
+            context: {
+                tag,
+            },
+        });
+    });
 };

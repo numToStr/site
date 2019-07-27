@@ -2,6 +2,8 @@ import React from "react";
 import Typography from "@material-ui/core/Typography";
 import Chip from "@material-ui/core/Chip";
 import Box from "@material-ui/core/Box";
+import { Link } from "gatsby";
+import { kebabCase } from "../utils/string.utils";
 
 const BlogTags = ({ tags = [] }) => {
     let tagList = null;
@@ -10,7 +12,13 @@ const BlogTags = ({ tags = [] }) => {
         tagList = tags.map((tag, $i) => {
             return (
                 <Box key={$i} clone m={0.5}>
-                    <Chip size="small" label={`#${tag}`} />
+                    <Chip
+                        component={Link}
+                        to={`/tags/${kebabCase(tag)}`}
+                        size="small"
+                        label={`#${kebabCase(tag)}`}
+                        clickable
+                    />
                 </Box>
             );
         });

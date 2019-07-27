@@ -53,7 +53,7 @@ const project = ({
     return (
         <Fragment>
             <SEO title="Projects" />
-            <Box clone pb={8}>
+            <Box clone pb={6}>
                 <Grid
                     style={fadeIn}
                     component={animated.div}

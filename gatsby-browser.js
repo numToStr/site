@@ -1,5 +1,5 @@
 require("./src/styles/dracula-prism.css");
-require("./src/styles/index.scss");
+require("./src/styles/index.css");
 
 const React = require("react");
 const Layout = require("./src/components/Layout").default;

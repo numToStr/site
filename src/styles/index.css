@@ -1,4 +1,4 @@
-// body {
+/* // body {
 //     &::-webkit-scrollbar {
 //         width: 5px;
 //     }
@@ -6,7 +6,7 @@
 //         background-color: #ff1744;
 //         border-radius: 3em;
 //     }
-// }
+// } */
 
 html,
 body,
@@ -14,18 +14,20 @@ body,
     overflow: hidden;
     height: 100%;
     position: relative;
-    > div:first-child {
-        @extend #___gatsby;
-    }
 }
 
-body {
-    &.dark {
-        background-color: #000;
-    }
-    &.light {
-        background-color: #fff;
-    }
+#___gatsby > div:first-child {
+    overflow: hidden;
+    height: 100%;
+    position: relative;
+}
+
+body.light {
+    background-color: #fff;
+}
+
+body.dark {
+    background-color: #000;
 }
 
 .bg-transition {

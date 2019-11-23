@@ -15,7 +15,7 @@ const NavigationLink = ({ text, type, to, ...props }) => {
             fontWeight="fontWeightBold"
             {...props}
         >
-            <MuiLink component={Link} to={to} color="textPrimary">
+            <MuiLink component={Link} to={`/blog/${to}`} color="textPrimary">
                 {type === "previous" && <PreviousIcon />}
                 {text}
                 {type === "next" && <NextIcon />}

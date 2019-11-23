@@ -8,7 +8,7 @@ import Bar from "../components/Bar";
 import { useFadeIn } from "../components/Animation/useFadeIn";
 import BlogCards from "../components/BlogCards";
 
-const blog = () => {
+const Blog = () => {
     const blogs = useBlogs();
 
     const [fadeIn, animated] = useFadeIn();
@@ -36,4 +36,4 @@ const blog = () => {
     );
 };
 
-export default blog;
+export default Blog;

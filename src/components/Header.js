@@ -1,9 +1,9 @@
 import React, { useState, Fragment, useCallback, memo } from "react";
-import BaseDrawer from "./Drawer/Drawer";
-import DrawerButton from "./Drawer/DrawerButton";
 import Box from "@material-ui/core/Box";
 import MuiLink from "@material-ui/core/Link";
 import { navigate } from "gatsby";
+import BaseDrawer from "./Drawer/Drawer";
+import DrawerButton from "./Drawer/DrawerButton";
 import Logo from "./Icons/Logo";
 import ThemeToggle from "./ThemeToggle";
 
@@ -19,7 +19,7 @@ const Header = () => {
             showDrawer(flag);
             navigate(link);
         },
-        [showDrawer, navigate]
+        []
     );
 
     return (

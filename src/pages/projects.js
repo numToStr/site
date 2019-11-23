@@ -41,7 +41,7 @@ export const data = graphql`
     }
 `;
 
-const project = ({
+const Projects = ({
     data: {
         github: {
             viewer: { url, pinnedItems },
@@ -93,4 +93,4 @@ const project = ({
     );
 };
 
-export default project;
+export default Projects;

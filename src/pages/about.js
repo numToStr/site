@@ -7,7 +7,7 @@ import { Link } from "gatsby";
 import SEO from "../components/SEO";
 import { useFadeIn } from "../components/Animation/useFadeIn";
 
-const about = () => {
+const About = () => {
     const [fadeIn, animated] = useFadeIn();
 
     return (
@@ -128,4 +128,4 @@ const about = () => {
     );
 };
 
-export default about;
+export default About;

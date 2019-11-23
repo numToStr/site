@@ -11,7 +11,7 @@ import GithubLogo from "../components/Icons/GithubIcon";
 import MailIcon from "../components/Icons/MailIcon";
 import DevToIcon from "../components/Icons/DevToIcon";
 
-const contact = () => {
+const Contact = () => {
     const { social } = useSiteMetadata();
     const [fadeIn, animated] = useFadeIn();
 
@@ -97,4 +97,4 @@ const contact = () => {
     );
 };
 
-export default contact;
+export default Contact;

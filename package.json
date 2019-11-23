@@ -3,6 +3,11 @@
     "description": "Personal portfolio and blog",
     "version": "1.0.0",
     "author": "Vikas Raj <vikasraj1911@gmail.com>",
+    "engines": {
+        "node": "^12.13.0 || ^10.15.3",
+        "npm": "^6.9.0",
+        "yarn": "^1.19.1"
+    },
     "dependencies": {
         "@material-ui/core": "^4.7.0",
         "@material-ui/icons": "^4.5.1",

@@ -1,4 +1,4 @@
-import styled from "@material-ui/styles/styled";
+import styled from "@material-ui/core/styles/styled";
 import Fab from "@material-ui/core/Fab";
 
 const CustomFab = styled(Fab)(({ theme: { palette } }) => {

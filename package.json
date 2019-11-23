@@ -6,7 +6,6 @@
     "dependencies": {
         "@material-ui/core": "^4.7.0",
         "@material-ui/icons": "^4.5.1",
-        "@material-ui/styles": "^4.6.0",
         "gatsby": "^2.18.2",
         "gatsby-plugin-catch-links": "^2.1.17",
         "gatsby-plugin-manifest": "^2.2.29",

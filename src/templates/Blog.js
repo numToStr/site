@@ -2,7 +2,7 @@ import React, { Fragment, useMemo, useEffect } from "react";
 import { graphql } from "gatsby";
 import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
-import styled from "@material-ui/styles/styled";
+import styled from "@material-ui/core/styles/styled";
 import SEO from "../components/SEO";
 import { useFadeIn } from "../components/Animation/useFadeIn";
 import DateFormat from "../components/DateFormat";

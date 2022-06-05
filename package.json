@@ -4,7 +4,6 @@
     "version": "1.0.0",
     "author": "Vikas Raj <vikasraj1911@gmail.com>",
     "dependencies": {
-        "gray-matter": "^4.0.3",
         "next": "^12.1.6",
         "nextra": "2.0.0-alpha.56",
         "nextra-theme-blog": "2.0.0-alpha.54",

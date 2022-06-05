@@ -4,7 +4,6 @@ specifiers:
   '@types/node': ^17.0.38
   eslint: ^8.16.0
   eslint-config-next: ^12.1.6
-  gray-matter: ^4.0.3
   next: ^12.1.6
   nextra: 2.0.0-alpha.56
   nextra-theme-blog: 2.0.0-alpha.54
@@ -14,7 +13,6 @@ specifiers:
   typescript: ^4.7.2
 
 dependencies:
-  gray-matter: 4.0.3
   next: 12.1.6_ef5jwxihqo6n7gxfmzogljlgcm
   nextra: 2.0.0-alpha.56_react@18.1.0
   nextra-theme-blog: 2.0.0-alpha.54_2mgcgz5qhsdxw4fgpqzqeafmkq

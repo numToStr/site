@@ -12,7 +12,7 @@ const theme = {
                 <link rel="canonical" href={SITE} />
                 <meta name="author" content={NAME} />
                 <meta name="title" content={meta.title} />
-                <meta property="description" content={meta.description} />
+                <meta name="description" content={meta.description} />
                 <meta property="og:type" content="website" />
                 <meta property="og:title" content={meta.title} />
                 <meta property="og:description" content={meta.description} />

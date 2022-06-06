@@ -5,21 +5,23 @@ const theme = {
     darkMode: true,
     readMore: "Read More →",
     titleSuffix: ` - ${NAME}`,
-    head: ({ meta }) => {
+    head({ meta }) {
+        const title = `${meta.title}${this.titleSuffix}`;
+
         return (
             <>
                 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
                 <link rel="canonical" href={SITE} />
                 <meta name="author" content={NAME} />
-                <meta name="title" content={meta.title} />
+                <meta name="title" content={title} />
                 <meta name="description" content={meta.description} />
                 <meta property="og:type" content="website" />
-                <meta property="og:title" content={meta.title} />
+                <meta property="og:title" content={title} />
                 <meta property="og:description" content={meta.description} />
                 <meta property="og:url" content={SITE} />
                 <meta property="twitter:card" content="summary" />
                 <meta property="twitter:site" content="@numToStr" />
-                <meta property="twitter:title" content={meta.title} />
+                <meta property="twitter:title" content={title} />
                 <meta
                     property="twitter:description"
                     content={meta.description}

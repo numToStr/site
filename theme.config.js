@@ -32,7 +32,7 @@ const theme = {
         );
     },
     footer: (
-        <div>
+        <footer>
             <hr />
             <small>
                 <a
@@ -69,7 +69,7 @@ const theme = {
                     {/* <a href="/feed.xml">RSS</a> */}
                 </div>
             </small>
-        </div>
+        </footer>
     ),
     // navs: [
     //     {

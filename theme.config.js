@@ -1,5 +1,5 @@
 const NAME = "Vikas Rajbanshi";
-const SITE = "https://vikasraj.dev";
+const SITE = "https://www.vikasraj.dev";
 
 const theme = {
     darkMode: true,
@@ -7,6 +7,7 @@ const theme = {
     titleSuffix: ` - ${NAME}`,
     head({ meta }) {
         const title = `${meta.title}${this.titleSuffix}`;
+        const type = "date" in meta ? "article" : "website";
 
         return (
             <>
@@ -15,7 +16,7 @@ const theme = {
                 <meta name="author" content={NAME} />
                 <meta name="title" content={title} />
                 <meta name="description" content={meta.description} />
-                <meta property="og:type" content="website" />
+                <meta property="og:type" content={type} />
                 <meta property="og:title" content={title} />
                 <meta property="og:description" content={meta.description} />
                 <meta property="og:url" content={SITE} />
@@ -28,6 +29,15 @@ const theme = {
                 />
                 <meta property="twitter:url" content={SITE} />
                 <meta property="twitter:image" content={`${SITE}/logo.png`} />
+                {/* Visit https://cards.microlink.io/*/}
+                {/* Somehow create cover images at build time and store them at public folder */}
+                {/*
+                <meta name="image" content="" />
+                <meta itemProp="image" content="" />
+                <meta property="og:image" content="" />
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:image" content="" />
+                */}
             </>
         );
     },

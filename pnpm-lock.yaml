@@ -4,6 +4,7 @@ specifiers:
   '@types/node': ^17.0.38
   eslint: ^8.16.0
   eslint-config-next: ^12.1.6
+  globby: ^13.1.1
   next: ^12.1.6
   nextra: 2.0.0-alpha.56
   nextra-theme-blog: 2.0.0-alpha.54
@@ -23,6 +24,7 @@ devDependencies:
   '@types/node': 17.0.38
   eslint: 8.16.0
   eslint-config-next: 12.1.6_k6khgwrcmlpd2kpaxkviqw2zii
+  globby: 13.1.1
   prettier: 2.6.2
   typescript: 4.7.2
 
@@ -1323,6 +1325,17 @@ packages:
       ignore: 5.2.0
       merge2: 1.4.1
       slash: 3.0.0
+    dev: true
+
+  /globby/13.1.1:
+    resolution: {integrity: sha512-XMzoDZbGZ37tufiv7g0N4F/zp3zkwdFtVbV3EHsVl1KQr4RPLfNoT068/97RPshz2J5xYNEjLKKBKaGHifBd3Q==}
+    engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
+    dependencies:
+      dir-glob: 3.0.1
+      fast-glob: 3.2.11
+      ignore: 5.2.0
+      merge2: 1.4.1
+      slash: 4.0.0
     dev: true
 
   /graceful-fs/4.2.10:
@@ -2737,6 +2750,11 @@ packages:
   /slash/3.0.0:
     resolution: {integrity: sha512-g9Q1haeby36OSStwb4ntCGGGaKsaVSjQ68fBxoQcutl5fS1vuY18H3wSt3jFyFtrkx+Kz0V1G85A4MyAdDMi2Q==}
     engines: {node: '>=8'}
+
+  /slash/4.0.0:
+    resolution: {integrity: sha512-3dOsAHXXUkQTpOYcoAxLIorMTp4gIQr5IW3iVb7A7lFIp0VHhnynm9izx6TssdrIcVIESAlVjtnO2K8bg+Coew==}
+    engines: {node: '>=12'}
+    dev: true
 
   /source-map-js/1.0.2:
     resolution: {integrity: sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==}

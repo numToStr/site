@@ -1,8 +1,13 @@
 {
-    "name": "vikasraj.dev",
-    "description": "Personal portfolio and blog",
+    "name": "site",
+    "description": "A little space that I own on the internet",
     "version": "1.0.0",
-    "author": "Vikas Raj <vikasraj1911@gmail.com>",
+    "author": {
+        "name": "Vikas Rajbanshi",
+        "email": "me@vikasraj.dev",
+        "url": "https://www.vikasraj.dev",
+        "twitter": "@numToStr"
+    },
     "dependencies": {
         "next": "^12.1.6",
         "nextra": "2.0.0-alpha.56",

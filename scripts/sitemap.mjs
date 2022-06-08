@@ -1,8 +1,7 @@
 import fs from "fs";
 import { globby } from "globby";
 import prettier from "prettier";
-
-const URL = "https://www.vikasraj.dev";
+import pkg from "../package.json" assert { type: "json" };
 
 const prettierConfig = await prettier.resolveConfig("./.prettierrc");
 
@@ -23,13 +22,11 @@ const sitemap = `
         .map((page) => {
             const path = page
                 .replace("pages/", "/")
-                .replace("posts/", "posts/")
-                .replace(".js", "")
-                .replace(".mdx", "")
-                .replace(".md", "");
+                .replace(/\.(js|mdx|md)$/, "")
+                .replace(/\/index$/, "");
 
-            if (["/blog/index", "/tags/[tag]"].includes(path)) {
-                return false;
+            if (["/tags/[tag]"].includes(path)) {
+                return "";
             }
 
             //  <url>
@@ -41,11 +38,10 @@ const sitemap = `
 
             return `
                 <url>
-                    <loc>${URL}${path === "/index" ? "" : path}</loc>
+                    <loc>${pkg.author.url}${path}</loc>
                 </url>
             `;
         })
-        .filter(Boolean)
         .join("\n")}
 </urlset>`;
 

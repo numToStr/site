@@ -1,7 +1,11 @@
 import fs from "fs";
 import { globby } from "globby";
 import prettier from "prettier";
-import pkg from "../package.json" assert { type: "json" };
+
+// This is a workaround for vercel not supporting json modules
+const pkg = JSON.parse(
+    fs.readFileSync(new URL("../package.json", import.meta.url))
+);
 
 const prettierConfig = await prettier.resolveConfig("./.prettierrc");
 

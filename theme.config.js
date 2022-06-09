@@ -114,7 +114,7 @@ const theme = {
                 <a href={`mailto:${EMAIL}`} target="_blank" rel="noreferrer">
                     {EMAIL}
                 </a>
-                <div style={{ marginTop: "2rem" }}>
+                <div style={{ marginTop: "4rem" }}>
                     <abbr
                         title="This site and all its content are licensed under a Creative Commons Attribution-NonCommercial 4.0 International License."
                         style={{ cursor: "help" }}

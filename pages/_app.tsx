@@ -23,6 +23,21 @@ export default function App({ Component, pageProps }) {
                     .post-item .post-item-date {
                         --tw-text-opacity: inherit;
                     }
+
+                    .post-item .post-item-more {
+                        margin-left: 0.5rem;
+                    }
+
+                    h2 a.subheading {
+                        font-weight: bold;
+                    }
+
+                    code::after,
+                    code::before,
+                    blockquote > p::after,
+                    blockquote > p::before {
+                        content: none !important;
+                    }
                 `}
             </style>
             {getLayout(<Component {...pageProps} />)}

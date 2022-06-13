@@ -13,7 +13,7 @@ In this post, I'll explain What is logging? How to setup logging? and What data 
 
 **Logging** is a technique that allows anyone to see and observe what's going on inside a service or application whether it's a server, database or a process running in the background.
 
-This also enables reporting of crashes or failures like server outage, so that we can quickly fix those issue by looking into those logs and finding the root cause.
+It also enables reporting of crashes or failures like server outage, so that we can quickly fix those issue by looking into those logs and finding the root cause.
 
 ## How to log?
 
@@ -93,7 +93,7 @@ app.listen(3000);
 
 For a server environment, having observability on the request \<-> response life cycle is very crucial. Everything depends on this life cycle working flawlessly, if something happens in-between then we need to make sure that we can get an idea when things went wrong. Things that we could/should log are:
 
--   **Incoming and Outgoing Request** - To see from where we are receiving the request and To see whether we are sending the correct response. If you are using `fastify` and `express` + `express-pino-logger`, request logging will be configured automatically for you.
+-   **Incoming and Outgoing Request** - To see from where we are receiving the request and To see whether we are sending the correct response. If you are working with `fastify` or `express` + `express-pino-logger`, then request logging will be configured automatically for you.
 
 -   **Information** - These are useful when you are debugging something like a webhook for payment service or anything that falls outside of request-response lifecycle.
 

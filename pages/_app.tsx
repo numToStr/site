@@ -1,4 +1,7 @@
+import Script from "next/script";
 import "nextra-theme-blog/style.css";
+
+const GTAG_ID = process.env.NEXT_PUBLIC_GTAG_ID;
 
 export default function App({ Component, pageProps }) {
     // Use the layout defined at the page level, if available
@@ -41,6 +44,22 @@ export default function App({ Component, pageProps }) {
                 `}
             </style>
             {getLayout(<Component {...pageProps} />)}
+            <Script
+                async
+                id="gtag-script"
+                src={`https://www.googletagmanager.com/gtag/js?id=${GTAG_ID}`}
+            />
+            <Script
+                id="gtag-setup"
+                dangerouslySetInnerHTML={{
+                    __html: `
+                        window.dataLayer = window.dataLayer || [];
+                        function gtag(){dataLayer.push(arguments);}
+                        gtag('js', new Date());
+                        gtag('config', '${GTAG_ID}');
+                    `,
+                }}
+            />
         </>
     );
 }

@@ -41,6 +41,13 @@ export default function App({ Component, pageProps }) {
                     blockquote > p::before {
                         content: none !important;
                     }
+
+                    kbd {
+                        border: 1px solid;
+                        padding: 0 0.3rem 0.1rem;
+                        border-radius: 0.3rem;
+                        border-bottom: 0.2rem solid;
+                    }
                 `}
             </style>
             {getLayout(<Component {...pageProps} />)}

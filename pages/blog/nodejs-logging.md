@@ -1,7 +1,7 @@
 ---
 title: Logging in Node.js! Why, How and What?
 description: Understand Why, How, and What to log in a Node.js application, and Best Practices around it.
-date: 10-06-2022
+date: 2022-06-10
 tag: [nodejs, fastify]
 ---
 

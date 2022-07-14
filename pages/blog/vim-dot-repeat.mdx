@@ -321,11 +321,16 @@ xnoremap gt <ESC><CMD>call DotRepeat(visualmode())<CR> " 1.
 </details>
 
 1. We have to `<ESC>` first and only after that visual marks `'<` and `'>` are populated
+
     - `vim.fn.visualmode()` returns one of `v`, `V` or `<CTRL-v>`
+
 2. Checking `motion` for any `VISUAL` mode characters
 3. Using `'<` and `'>` marks to get the selection range
 
-> NOTE: I am not handling `VISUAL-BLOCK` mode i.e., `<CTRL-v>` or dot-repeat. Maybe you could do it(?)
+> NOTE:
+>
+> 1.  I am using `<ESC><CMD>` instead of `:<C-u>` in the keymap to avoid triggering `CmdLineEnter` autocmd
+> 2.  I am not handling `VISUAL-BLOCK` mode i.e., `<CTRL-v>` or dot-repeat. Maybe you could do it(?)
 
 ---
 

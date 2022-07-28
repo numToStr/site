@@ -48,6 +48,26 @@ export default function App({ Component, pageProps }) {
                         border-radius: 0.3rem;
                         border-bottom: 0.2rem solid;
                     }
+
+                    footer {
+                        font-size: small;
+                    }
+
+                    footer .legends {
+                        display: flex;
+                        flex-direction: column;
+                    }
+
+                    footer .legends > div {
+                        padding: 0.25rem 0;
+                    }
+
+                    @media only screen and (min-width: 600px) {
+                        footer .legends {
+                            flex-direction: row;
+                            justify-content: space-between;
+                        }
+                    }
                 `}
             </style>
             {getLayout(<Component {...pageProps} />)}

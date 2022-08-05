@@ -2,9 +2,10 @@ import { useRouter } from "next/router";
 import pkg from "./package.json";
 
 const NAME = pkg.author.name;
-const SITE = pkg.author.url;
-const TWITTER = pkg.author.twitter;
+const UNAME = pkg.author.username;
 const EMAIL = pkg.author.email;
+const SITE = pkg.author.url;
+const TWITTER = `@${UNAME}`;
 const LOGO = `${SITE}/logo.png`;
 
 function Seo({ meta }) {
@@ -100,7 +101,7 @@ function Footer() {
             <div className="legends">
                 <div>
                     <a
-                        href="https://twitter.com/numToStr"
+                        href={`https://twitter.com/${UNAME}`}
                         target="_blank"
                         rel="noreferrer"
                     >
@@ -108,7 +109,7 @@ function Footer() {
                     </a>
                     <span> · </span>
                     <a
-                        href="https://github.com/numToStr"
+                        href={`https://github.com/${UNAME}`}
                         target="_blank"
                         rel="noreferrer"
                     >
@@ -127,7 +128,7 @@ function Footer() {
                     {isPost ? (
                         <a
                             title="Found a Typo? Have any suggestions? Feel free to submit a PR :)"
-                            href={`https://github.com/numToStr/site/edit/main/pages${pathname}.mdx`}
+                            href={`https://github.com/${UNAME}/site/edit/main/pages${pathname}.mdx`}
                             target="_blank"
                             rel="noreferrer"
                         >

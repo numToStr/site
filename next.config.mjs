@@ -4,6 +4,8 @@ const withNextra = nextra({
     theme: "nextra-theme-blog",
     themeConfig: "./theme.config.js",
     unstable_staticImage: true,
+    unstable_defaultShowCopyCode: true,
+    unstable_readingTime: true,
 });
 
 /**

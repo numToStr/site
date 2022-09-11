@@ -1,8 +1,9 @@
 ---
 title: LSP & Neovim; A Retrospective!
 description: Going from a simple text editor to a coding experience that everyone loves and enjoys!
-date: 2022-07-28 10:40
+date: 2022-07-28
 tag: [neovim, lsp]
+type: post
 ---
 
 What is [Language Server Protocol](https://microsoft.github.io/language-server-protocol/) (LSP)? It's a protocol specifically designed for IDE(s) to communicate with a language server to provide language features like auto-completion, go-to-definition, diagnostics, etc. LSP in itself is a [specification](https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/) that defines how language author should write a **Language/LSP Server** and how IDE(s) should implement a **Language/LSP Client** so that both could understand each other. The message format defined by the protocol is `JSON` (RPC).
@@ -29,7 +30,7 @@ Neovim exposed generic [lua API](https://github.com/neovim/neovim/pull/11430) fo
 
 Using `lspconfig` is pretty easy and straightforward. Following example shows how to setup [`rust-analyzer`](https://rust-analyzer.github.io/) and [`lua-language-server`](https://github.com/sumneko/lua-language-server/)
 
-```lua filename="servers.lua"
+```lua filename="servers.lua" {1,11,24}
 local lsp = require("lspconfig")
 
 local function on_attach(client, buf)
@@ -86,7 +87,7 @@ We have come a long way since the initial LSP support in v0.5.0 and I believe th
 
 With v0.8.0, You could setup LSP server like `rust-analyzer`, `lua-language-server`, and some keymaps without any plugin:
 
-```lua filename="servers.lua"
+```lua filename="servers.lua" {5,10,28,33,47,57}
 local lsp = vim.api.nvim_create_augroup("LSP", { clear = true })
 
 -- Lua

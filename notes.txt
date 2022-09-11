@@ -1,0 +1,11 @@
+addidas.com/adiclub
+
+qrcode includes page link
+user signup
+random selection
+gift - (best : wc2022 + ticket) and others
+
+1 user
+    - some threshold
+    - ticket can be one
+    - other gift can be won multiple times

@@ -4,24 +4,24 @@
     "version": "1.0.0",
     "author": {
         "name": "Vikas Rajbanshi",
+        "username": "numToStr",
         "email": "hello@vikasraj.dev",
-        "url": "https://www.vikasraj.dev",
-        "twitter": "@numToStr"
+        "url": "https://www.vikasraj.dev"
     },
     "dependencies": {
-        "next": "^12.2.3",
-        "nextra": "2.0.0-alpha.56",
-        "nextra-theme-blog": "2.0.0-alpha.55",
+        "next": "^12.2.5",
+        "nextra": "2.0.0-beta.25",
+        "nextra-theme-blog": "2.0.0-beta.25",
         "react": "^18.2.0",
         "react-dom": "^18.2.0"
     },
     "devDependencies": {
-        "@types/node": "^18.6.2",
-        "eslint": "^8.20.0",
-        "eslint-config-next": "^12.2.3",
+        "@types/node": "^18.7.14",
+        "eslint": "^8.23.0",
+        "eslint-config-next": "^12.2.5",
         "globby": "^13.1.2",
         "prettier": "^2.7.1",
-        "typescript": "^4.7.4"
+        "typescript": "^4.8.2"
     },
     "keywords": [
         "blog",
@@ -38,9 +38,9 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/vkasraj/vikasraj.dev"
+        "url": "https://github.com/numToStr/site"
     },
     "bugs": {
-        "url": "https://github.com/vkasraj/vikasraj.dev/issues"
+        "url": "https://github.com/numToStr/site/issues"
     }
 }

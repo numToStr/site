@@ -3,18 +3,17 @@ import nextra from "nextra";
 const withNextra = nextra({
     theme: "nextra-theme-blog",
     themeConfig: "./theme.config.js",
-    unstable_staticImage: true,
-    unstable_defaultShowCopyCode: true,
-    unstable_readingTime: true,
+    staticImage: true,
+    defaultShowCopyCode: true,
+    readingTime: true,
 });
 
 /**
  * @type {import('next').NextConfig}
  */
 const config = {
+    reactStrictMode: true,
     experimental: {
-        // newNextLinkBehavior: true, // Not needed for now
-        browsersListForSwc: true,
         legacyBrowsers: false,
     },
     async redirects() {

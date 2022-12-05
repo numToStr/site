@@ -10,14 +10,14 @@
     },
     "dependencies": {
         "next": "^13.0.6",
-        "nextra": "2.0.0-beta.45",
-        "nextra-theme-blog": "2.0.0-beta.45",
+        "nextra": "^2.0.1",
+        "nextra-theme-blog": "^2.0.1",
         "react": "^18.2.0",
         "react-dom": "^18.2.0"
     },
     "devDependencies": {
         "@types/node": "^18.11.10",
-        "eslint": "^8.28.0",
+        "eslint": "^8.29.0",
         "eslint-config-next": "^13.0.6",
         "globby": "^13.1.2",
         "prettier": "^2.8.0",

@@ -147,10 +147,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
 vim.api.nvim_create_autocmd("LspDetach", {
     group = lsp,
     callback = function(args)
-        vim.keymap.delete("n", "gd", { buffer = args.buf })
-        vim.keymap.delete("n", "gh", { buffer = args.buf })
-        vim.keymap.delete("n", "[g", { buffer = args.buf })
-        vim.keymap.delete("n", "]g", { buffer = args.buf })
+        vim.keymap.del("n", "gd", { buffer = args.buf })
+        vim.keymap.del("n", "gh", { buffer = args.buf })
+        vim.keymap.del("n", "[g", { buffer = args.buf })
+        vim.keymap.del("n", "]g", { buffer = args.buf })
     end,
 })
 ```

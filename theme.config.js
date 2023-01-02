@@ -1,14 +1,21 @@
 import { useRouter } from "next/router";
-import pkg from "./package.json";
+import { NAME, UNAME, EMAIL, SITE, TWITTER } from "./const";
 
-const NAME = pkg.author.name;
-const UNAME = pkg.author.username;
-const EMAIL = pkg.author.email;
-const SITE = pkg.author.url;
-const TWITTER = `@${UNAME}`;
+const API = `${SITE}/api/og`;
 const LOGO = `${SITE}/logo.png`;
 
-function OgImages({ meta }) {
+function OgImage({ content }) {
+    return (
+        <>
+            <meta name="image" content={content} />
+            <meta itemProp="image" content={content} />
+            <meta property="og:image" content={content} />
+            <meta name="twitter:image" content={content} />
+        </>
+    );
+}
+
+function BlogOgImages({ meta, path }) {
     const ogParams = new URLSearchParams({
         t: meta.title,
         d: new Intl.DateTimeFormat("en-IN", {
@@ -16,17 +23,10 @@ function OgImages({ meta }) {
             month: "short",
             year: "numeric",
         }).format(new Date(meta.date)),
+        p: path,
     });
-    const coverImage = `https://vikasraj.dev/api/og?${ogParams.toString()}`;
 
-    return (
-        <>
-            <meta name="image" content={coverImage} />
-            <meta itemProp="image" content={coverImage} />
-            <meta property="og:image" content={coverImage} />
-            <meta name="twitter:image" content={coverImage} />
-        </>
-    );
+    return <OgImage content={`${API}?${ogParams.toString()}`} />;
 }
 
 function Seo({ meta }) {
@@ -103,7 +103,13 @@ function Seo({ meta }) {
             <meta property="twitter:url" content={SITE} key="twitter_url" />
             <meta property="twitter:image" content={LOGO} key="twitter_image" />
 
-            {isPost ? <OgImages meta={meta} /> : null}
+            {isPost ? (
+                <BlogOgImages meta={meta} path={pathname} />
+            ) : (
+                <OgImage
+                    content={`${API}?t=${encodeURIComponent(meta.title)}`}
+                />
+            )}
         </>
     );
 }

@@ -10,8 +10,19 @@ const LOGO = `${SITE}/logo.png`;
 
 function Seo({ meta }) {
     const { pathname } = useRouter();
+
     const title = `${meta.title} - ${NAME}`;
     const type = "date" in meta ? "article" : "website";
+
+    const ogParams = new URLSearchParams({
+        t: meta.title,
+        d: new Intl.DateTimeFormat("en-IN", {
+            day: "2-digit",
+            month: "short",
+            year: "numeric",
+        }).format(new Date(meta.date)),
+    });
+    const coverImage = `https://vikasraj.dev/api/og?${ogParams.toString()}`;
 
     return (
         <>
@@ -79,14 +90,10 @@ function Seo({ meta }) {
             <meta property="twitter:url" content={SITE} key="twitter_url" />
             <meta property="twitter:image" content={LOGO} key="twitter_image" />
 
-            {/* Visit https://cards.microlink.io/*/}
-            {/* Somehow create cover images at build time and store them at public folder */}
-            {/*
-                <meta name="image" content="" />
-                <meta itemProp="image" content="" />
-                <meta property="og:image" content="" />
-                <meta name="twitter:image" content="" />
-                */}
+            <meta name="image" content={coverImage} />
+            <meta itemProp="image" content={coverImage} />
+            <meta property="og:image" content={coverImage} />
+            <meta name="twitter:image" content={coverImage} />
         </>
     );
 }

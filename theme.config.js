@@ -1,17 +1,41 @@
 import { useRouter } from "next/router";
-import pkg from "./package.json";
+import { NAME, UNAME, EMAIL, SITE, TWITTER } from "./const";
 
-const NAME = pkg.author.name;
-const UNAME = pkg.author.username;
-const EMAIL = pkg.author.email;
-const SITE = pkg.author.url;
-const TWITTER = `@${UNAME}`;
+const API = `${SITE}/api/og`;
 const LOGO = `${SITE}/logo.png`;
+
+function OgImage({ content }) {
+    return (
+        <>
+            <meta name="image" content={content} />
+            <meta itemProp="image" content={content} />
+            <meta property="og:image" content={content} />
+            <meta name="twitter:image" content={content} />
+        </>
+    );
+}
+
+function BlogOgImages({ meta, path }) {
+    const ogParams = new URLSearchParams({
+        t: meta.title,
+        d: new Intl.DateTimeFormat("en-IN", {
+            day: "2-digit",
+            month: "short",
+            year: "numeric",
+        }).format(new Date(meta.date)),
+        p: path,
+    });
+
+    return <OgImage content={`${API}?${ogParams.toString()}`} />;
+}
 
 function Seo({ meta }) {
     const { pathname } = useRouter();
+
     const title = `${meta.title} - ${NAME}`;
     const type = "date" in meta ? "article" : "website";
+
+    const isPost = /\/blog\/.+/.test(pathname);
 
     return (
         <>
@@ -79,14 +103,13 @@ function Seo({ meta }) {
             <meta property="twitter:url" content={SITE} key="twitter_url" />
             <meta property="twitter:image" content={LOGO} key="twitter_image" />
 
-            {/* Visit https://cards.microlink.io/*/}
-            {/* Somehow create cover images at build time and store them at public folder */}
-            {/*
-                <meta name="image" content="" />
-                <meta itemProp="image" content="" />
-                <meta property="og:image" content="" />
-                <meta name="twitter:image" content="" />
-                */}
+            {isPost ? (
+                <BlogOgImages meta={meta} path={pathname} />
+            ) : (
+                <OgImage
+                    content={`${API}?t=${encodeURIComponent(meta.title)}`}
+                />
+            )}
         </>
     );
 }

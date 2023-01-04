@@ -98,6 +98,7 @@ async function og(req) {
     const title = searchParams.get("t") ?? "Welcome!";
     const date = searchParams.get("d");
     const path = searchParams.get("p");
+    const readingTime = searchParams.get("r");
 
     const config = {
         width: 1200,
@@ -111,7 +112,7 @@ async function og(req) {
         ],
     };
 
-    if (!(date && path)) {
+    if (!(date && path && readingTime)) {
         return new ImageResponse(
             (
                 <Layout>
@@ -139,8 +140,9 @@ async function og(req) {
                 >
                     {title}
                 </h1>
-                <p style={{ color, fontSize: 24 }}>{date}</p>
-                {/* <p style={{ color, fontSize: 24 }}>{date} · 3 min read</p> */}
+                <p style={{ color, fontSize: 24 }}>
+                    {date} · {readingTime}
+                </p>
             </Layout>
         ),
         config

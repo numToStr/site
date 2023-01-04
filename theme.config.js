@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+import { useBlogContext } from "nextra-theme-blog";
 import { NAME, UNAME, EMAIL, SITE, TWITTER } from "./const";
 
 const API = `${SITE}/api/og`;
@@ -15,27 +16,28 @@ function OgImage({ content }) {
     );
 }
 
-function BlogOgImages({ meta, path }) {
-    const ogParams = new URLSearchParams({
-        t: meta.title,
+function BlogOgImages({ opts }) {
+    const params = new URLSearchParams({
+        t: opts.title,
         d: new Intl.DateTimeFormat("en-IN", {
             day: "2-digit",
             month: "short",
             year: "numeric",
-        }).format(new Date(meta.date)),
-        p: path,
+        }).format(new Date(opts.frontMatter.date)),
+        p: opts.route,
+        r: opts.readingTime?.text,
     });
 
-    return <OgImage content={`${API}?${ogParams.toString()}`} />;
+    return <OgImage content={`${API}?${params.toString()}`} />;
 }
 
 function Seo({ meta }) {
-    const { pathname } = useRouter();
+    const { opts } = useBlogContext();
 
     const title = `${meta.title} - ${NAME}`;
     const type = "date" in meta ? "article" : "website";
 
-    const isPost = /\/blog\/.+/.test(pathname);
+    const isPost = /\/blog\/.+/.test(opts.route);
 
     return (
         <>
@@ -43,7 +45,7 @@ function Seo({ meta }) {
             <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
             <link
                 rel="canonical"
-                href={`${SITE}${pathname}`}
+                href={`${SITE}${opts.route}`}
                 key="canonical_url"
             />
             <meta name="author" content={NAME} key="author" />
@@ -104,7 +106,7 @@ function Seo({ meta }) {
             <meta property="twitter:image" content={LOGO} key="twitter_image" />
 
             {isPost ? (
-                <BlogOgImages meta={meta} path={pathname} />
+                <BlogOgImages opts={opts} />
             ) : (
                 <OgImage
                     content={`${API}?t=${encodeURIComponent(meta.title)}`}

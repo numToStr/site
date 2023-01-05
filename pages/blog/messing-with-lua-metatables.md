@@ -49,8 +49,8 @@ end
 --     return this.x + that.x
 -- end
 
-local a = setmetatable({ x = 10 }, meta)
-local b = setmetatable({ x = 5 }, meta)
+local a = setmetatable({ x = 10 }, mt)
+local b = setmetatable({ x = 5 }, mt)
 
 print(a + b) -- prints 15
 ```
@@ -97,8 +97,8 @@ function mt:__concat(that)
     return { x = self.x + that.x }
 end
 
-local a = setmetatable({ x = 10 }, meta)
-local b = setmetatable({ x = 5 }, meta)
+local a = setmetatable({ x = 10 }, mt)
+local b = setmetatable({ x = 5 }, mt)
 
 print(a + b) -- prints 15
 print(a - b) -- prints 5
@@ -202,7 +202,7 @@ local strings = setmetatable({}, {
     end,
 })
 
-print(strings.c) -- prints "//%s" "/*%s*/"
+print(strings.c()) -- prints "//%s" "/*%s*/"
 print(strings.c(1)) -- prints "//%s"
 print(strings.c(2)) -- prints "/*%s*/"
 ```

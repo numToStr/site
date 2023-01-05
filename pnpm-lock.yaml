@@ -9,16 +9,12 @@ specifiers:
   nextra: ^2.0.3
   nextra-theme-blog: ^2.0.3
   prettier: ^2.8.1
-  react: ^18.2.0
-  react-dom: ^18.2.0
 
 dependencies:
   '@vercel/og': 0.0.21
-  next: 13.1.1_biqbaboplfbrettd7655fr4n2y
-  nextra: 2.0.3_q76c2b4vyoegvsbrcwkfvimnai
-  nextra-theme-blog: 2.0.3_q76c2b4vyoegvsbrcwkfvimnai
-  react: 18.2.0
-  react-dom: 18.2.0_react@18.2.0
+  next: 13.1.1
+  nextra: 2.0.3_next@13.1.1
+  nextra-theme-blog: 2.0.3_next@13.1.1
 
 devDependencies:
   eslint: 8.31.0
@@ -104,14 +100,13 @@ packages:
       - supports-color
     dev: false
 
-  /@mdx-js/react/2.2.1_react@18.2.0:
+  /@mdx-js/react/2.2.1:
     resolution: {integrity: sha512-YdXcMcEnqZhzql98RNrqYo9cEhTTesBiCclEtoiQUbJwx87q9453GTapYU6kJ8ZZ2ek1Vp25SiAXEFy5O/eAPw==}
     peerDependencies:
       react: '>=16'
     dependencies:
       '@types/mdx': 2.0.3
       '@types/react': 18.0.26
-      react: 18.2.0
     dev: false
 
   /@napi-rs/simple-git-android-arm-eabi/0.1.8:
@@ -1941,6 +1936,7 @@ packages:
 
   /js-tokens/4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
+    dev: true
 
   /js-yaml/3.14.1:
     resolution: {integrity: sha512-okMH7OXXJ7YrN9Ok3/SXrnu4iX9yOk+25nqX4imS2npuvTYDmo/QEZoqwZkYaIDk3jVvBOTOIEgEhaLOynBS9g==}
@@ -2053,6 +2049,7 @@ packages:
     hasBin: true
     dependencies:
       js-tokens: 4.0.0
+    dev: true
 
   /lru-cache/4.1.5:
     resolution: {integrity: sha512-sWZlbEP2OsHNkXrMl5GYk/jKk70MBng6UU4YI/qGDYbgf6YbP4EvmqISbXCoJiRKs+1bSpFHVgQxvJ17F2li5g==}
@@ -2662,19 +2659,17 @@ packages:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
     dev: true
 
-  /next-themes/0.2.1_q76c2b4vyoegvsbrcwkfvimnai:
+  /next-themes/0.2.1_next@13.1.1:
     resolution: {integrity: sha512-B+AKNfYNIzh0vqQQKqQItTS8evEouKD7H5Hj3kmuPERwddR2TxvDSFZuTj6T7Jfn1oyeUyJMydPl1Bkxkh0W7A==}
     peerDependencies:
       next: '*'
       react: '*'
       react-dom: '*'
     dependencies:
-      next: 13.1.1_biqbaboplfbrettd7655fr4n2y
-      react: 18.2.0
-      react-dom: 18.2.0_react@18.2.0
+      next: 13.1.1
     dev: false
 
-  /next/13.1.1_biqbaboplfbrettd7655fr4n2y:
+  /next/13.1.1:
     resolution: {integrity: sha512-R5eBAaIa3X7LJeYvv1bMdGnAVF4fVToEjim7MkflceFPuANY3YyvFxXee/A+acrSYwYPvOvf7f6v/BM/48ea5w==}
     engines: {node: '>=14.6.0'}
     hasBin: true
@@ -2696,9 +2691,7 @@ packages:
       '@swc/helpers': 0.4.14
       caniuse-lite: 1.0.30001441
       postcss: 8.4.14
-      react: 18.2.0
-      react-dom: 18.2.0_react@18.2.0
-      styled-jsx: 5.1.1_react@18.2.0
+      styled-jsx: 5.1.1
     optionalDependencies:
       '@next/swc-android-arm-eabi': 13.1.1
       '@next/swc-android-arm64': 13.1.1
@@ -2718,7 +2711,7 @@ packages:
       - babel-plugin-macros
     dev: false
 
-  /nextra-theme-blog/2.0.3_q76c2b4vyoegvsbrcwkfvimnai:
+  /nextra-theme-blog/2.0.3_next@13.1.1:
     resolution: {integrity: sha512-0BEjX7zMhjIgPIQNHPN9JgXx7fYUYncy9sW1FHmB7d3/HPtenvZfUMLMtzRT++zXl8tTkRK3SooeU7uVsYdayg==}
     peerDependencies:
       next: '>=9.5.3'
@@ -2729,14 +2722,12 @@ packages:
       react-cusdis:
         optional: true
     dependencies:
-      '@mdx-js/react': 2.2.1_react@18.2.0
-      next: 13.1.1_biqbaboplfbrettd7655fr4n2y
-      next-themes: 0.2.1_q76c2b4vyoegvsbrcwkfvimnai
-      react: 18.2.0
-      react-dom: 18.2.0_react@18.2.0
+      '@mdx-js/react': 2.2.1
+      next: 13.1.1
+      next-themes: 0.2.1_next@13.1.1
     dev: false
 
-  /nextra/2.0.3_q76c2b4vyoegvsbrcwkfvimnai:
+  /nextra/2.0.3_next@13.1.1:
     resolution: {integrity: sha512-GttZMwfHiVcrnVMnN2PKq2mS6YoQ0zrbzRYS838WYfzUpjIPCR6L8rJbAEd00kcrJNM1MvSCxONOTqGDDjW7YA==}
     peerDependencies:
       next: '>=9.5.3'
@@ -2749,10 +2740,8 @@ packages:
       graceful-fs: 4.2.10
       gray-matter: 4.0.3
       katex: 0.16.4
-      next: 13.1.1_biqbaboplfbrettd7655fr4n2y
+      next: 13.1.1
       p-limit: 3.1.0
-      react: 18.2.0
-      react-dom: 18.2.0_react@18.2.0
       rehype-katex: 6.0.2
       rehype-mdx-title: 2.0.0
       rehype-pretty-code: 0.6.0_shiki@0.12.1
@@ -2998,26 +2987,9 @@ packages:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
     dev: true
 
-  /react-dom/18.2.0_react@18.2.0:
-    resolution: {integrity: sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g==}
-    peerDependencies:
-      react: ^18.2.0
-    dependencies:
-      loose-envify: 1.4.0
-      react: 18.2.0
-      scheduler: 0.23.0
-    dev: false
-
   /react-is/16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
     dev: true
-
-  /react/18.2.0:
-    resolution: {integrity: sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==}
-    engines: {node: '>=0.10.0'}
-    dependencies:
-      loose-envify: 1.4.0
-    dev: false
 
   /reading-time/1.5.0:
     resolution: {integrity: sha512-onYyVhBNr4CmAxFsKS7bz+uTLRakypIe4R+5A824vBSkQy/hB3fZepoVEf8OVAxzLvK+H/jm9TzpI3ETSm64Kg==}
@@ -3212,12 +3184,6 @@ packages:
       yoga-layout-prebuilt: 1.10.0
     dev: false
 
-  /scheduler/0.23.0:
-    resolution: {integrity: sha512-CtuThmgHNg7zIZWAXi3AsyIzA3n4xx7aNyjwC2VJldO2LMVDhFK+63xGqq6CsJH4rTAt6/M+N4GhZiDYPx9eUw==}
-    dependencies:
-      loose-envify: 1.4.0
-    dev: false
-
   /section-matter/1.0.0:
     resolution: {integrity: sha512-vfD3pmTzGpufjScBh50YHKzEu2lxBWhVEHsNGoEXmCmn2hKGfeNLYMzCJpe8cD7gqX7TJluOVpBkAequ6dgMmA==}
     engines: {node: '>=4'}
@@ -3390,7 +3356,7 @@ packages:
       inline-style-parser: 0.1.1
     dev: false
 
-  /styled-jsx/5.1.1_react@18.2.0:
+  /styled-jsx/5.1.1:
     resolution: {integrity: sha512-pW7uC1l4mBZ8ugbiZrcIsiIvVx1UmTfw7UkC3Um2tmfUq9Bhk8IiyEIPl6F8agHgjzku6j0xQEZbfA5uSgSaCw==}
     engines: {node: '>= 12.0.0'}
     peerDependencies:
@@ -3404,7 +3370,6 @@ packages:
         optional: true
     dependencies:
       client-only: 0.0.1
-      react: 18.2.0
     dev: false
 
   /supports-color/4.5.0:

@@ -166,10 +166,10 @@ function Footer() {
             </section>
             <section style={{ marginTop: "4rem" }}>
                 <abbr
-                    title="This site and all its content are licensed under a Creative Commons Attribution-NonCommercial 4.0 International License."
+                    title="This site and all its content are licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License."
                     style={{ cursor: "help" }}
                 >
-                    CC BY-NC 4.0
+                    CC BY-NC-SA 4.0
                 </abbr>
                 <time> {new Date().getFullYear()}</time> &copy; {NAME}.
                 {/* <a href="/feed.xml">RSS</a> */}

@@ -4,6 +4,12 @@ import { NAME, UNAME, EMAIL, SITE, TWITTER } from "./const";
 
 const API = `${SITE}/api/og`;
 const LOGO = `${SITE}/logo.png`;
+const blogRegex = /\/blog\/.+/;
+const dateFmt = new Intl.DateTimeFormat("en-IN", {
+    day: "2-digit",
+    month: "short",
+    year: "numeric",
+});
 
 function OgImage({ content }) {
     return (
@@ -19,11 +25,7 @@ function OgImage({ content }) {
 function BlogOgImages({ opts }) {
     const params = new URLSearchParams({
         t: opts.title,
-        d: new Intl.DateTimeFormat("en-IN", {
-            day: "2-digit",
-            month: "short",
-            year: "numeric",
-        }).format(new Date(opts.frontMatter.date)),
+        d: dateFmt.format(new Date(opts.frontMatter.date)),
         p: opts.route,
         r: opts.readingTime?.text,
     });
@@ -37,7 +39,7 @@ function Seo({ meta }) {
     const title = `${meta.title} - ${NAME}`;
     const type = "date" in meta ? "article" : "website";
 
-    const isPost = /\/blog\/.+/.test(opts.route);
+    const isPost = blogRegex.test(opts.route);
 
     return (
         <>
@@ -118,13 +120,13 @@ function Seo({ meta }) {
 
 function Footer() {
     const { pathname } = useRouter();
-    const isPost = /\/blog\/.+/.test(pathname);
+    const isPost = blogRegex.test(pathname);
 
     return (
         <footer>
             <hr />
-            <div className="legends">
-                <div>
+            <section className="legends">
+                <nav>
                     <a
                         href={`https://twitter.com/${UNAME}`}
                         target="_blank"
@@ -148,8 +150,8 @@ function Footer() {
                     >
                         {EMAIL}
                     </a>
-                </div>
-                <div>
+                </nav>
+                <aside>
                     {isPost ? (
                         <a
                             title="Found a Typo? Have any suggestions? Feel free to submit a PR :)"
@@ -160,9 +162,9 @@ function Footer() {
                             Edit on Github
                         </a>
                     ) : null}
-                </div>
-            </div>
-            <div style={{ marginTop: "4rem" }}>
+                </aside>
+            </section>
+            <section style={{ marginTop: "4rem" }}>
                 <abbr
                     title="This site and all its content are licensed under a Creative Commons Attribution-NonCommercial 4.0 International License."
                     style={{ cursor: "help" }}
@@ -171,7 +173,7 @@ function Footer() {
                 </abbr>
                 <time> {new Date().getFullYear()}</time> &copy; {NAME}.
                 {/* <a href="/feed.xml">RSS</a> */}
-            </div>
+            </section>
         </footer>
     );
 }
@@ -179,7 +181,7 @@ function Footer() {
 const theme = {
     darkMode: true,
     readMore: "Read More →",
-    titleSuffix: ` - ${NAME}`,
+    titleSuffix: ` ❙ ${NAME}`,
     head: Seo,
     footer: <Footer />,
     // navs: [

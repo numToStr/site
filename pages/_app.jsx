@@ -11,11 +11,6 @@ export default function App({ Component, pageProps }) {
                         font-family: "Fira Code", monospace;
                     }
 
-                    blockquote > p::after,
-                    blockquote > p::before {
-                        content: none !important;
-                    }
-
                     kbd {
                         border: 1px solid;
                         padding: 0 0.3rem 0.1rem;

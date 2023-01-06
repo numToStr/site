@@ -6,16 +6,6 @@ tag: [neovim, vim]
 type: post
 ---
 
-export const Keys = (props) => {
-    return (
-        <>
-            {props.keys.map((key) => (
-                <kbd key={key}>{key}</kbd>
-            ))}
-        </>
-    );
-};
-
 Vim (and Neovim) is the most powerful text editors. And one of the most powerful and my personal favourite feature is `.` keymap. Also commonly known as **dot-repeat**.
 
 ## Dot-Repeat
@@ -89,7 +79,7 @@ Let's break this down
 
 When you press <kbd>gt</kbd> it will execute `__dot_repeat` function with argument `motion = nil`. So we update the `operatorfunc` value and return `g@` but because we specified `{ expr = true }`, neovim will also execute `g@` operator returned by the function.
 
-After `g@` is executed, you'll enter `Operator-pending-mode` where neovim will wait for any motion <Keys keys={['w', 'b', 'h', 'j', 'k', 'l']} /> or text-object <Keys keys={['iw', 'a{', 'i]', 'at']} /> keys to be pressed and then executes the function set by the `operatorfunc` with the a string argument.
+After `g@` is executed, you'll enter `Operator-pending-mode` where neovim will wait for any motion <kbd>w</kbd><kbd>b</kbd><kbd>h</kbd><kbd>j</kbd><kbd>k</kbd><kbd>l</kbd> or text-object <kbd>iw</kbd><kbd>a\{</kbd><kbd>i]</kbd><kbd>at</kbd> keys to be pressed and then executes the function set by the `operatorfunc` with the a string argument.
 
 Finally, press <kbd>.</kbd> which executes the last <kbd>[count]g@\{motion\}</kbd>. You can see the `counter` incrementing in the command area.
 

@@ -1,18 +1,18 @@
 ---
 title: Messing with lua metatables
-description: because more we mess around; the more we find out!
+description: because the more we mess around; the more we find out!
 date: 2023-01-05
 tag: [neovim, lua]
 type: post
 ---
 
-Some programming languages allows user to extends builtin data types with the help of constructs that is builtin to the language. In Rust, you can extend a [`struct{:rust}`](https://doc.rust-lang.org/stable/std/keyword.struct.html) by implementing various traits like [`Add{:rust}`](https://doc.rust-lang.org/stable/std/ops/trait.Add.html), [`Sub{:rust}`](https://doc.rust-lang.org/stable/std/ops/trait.Sub.html), [`Mul{:rust}`](https://doc.rust-lang.org/stable/std/ops/trait.Mul.html) etc,. to extend it's capabilities. _Let's see what Lua has to offer!_
+Some programming languages allow users to extend built-in data types with the help of constructs that are built into the language. In Rust, you can extend a [`struct{:rust}`](https://doc.rust-lang.org/stable/std/keyword.struct.html) by implementing various traits like [`Add{:rust}`](https://doc.rust-lang.org/stable/std/ops/trait.Add.html), [`Sub{:rust}`](https://doc.rust-lang.org/stable/std/ops/trait.Sub.html), [`Mul{:rust}`](https://doc.rust-lang.org/stable/std/ops/trait.Mul.html) etc,. to extend its capabilities. _Let's see what Lua has to offer!_
 
-> <small>NOTE: We are only going to use Lua 5.1 as this the version that is supported by [LuaJIT](https://luajit.org/).</small>
+> <small>NOTE: We are only going to use Lua 5.1 as this is the version that is supported by [LuaJIT](https://luajit.org/).</small>
 
 ## Metatables
 
-In Lua, we have [`setmetatable{:lua}`](https://www.lua.org/pil/13.html) which allows us to extends/change lua [`table{:lua}`](https://www.lua.org/pil/11.html) behaviour. We can use metatable to add support for [operator overloading](#operator-overloading) and some other [crazy stuff](#crazy-stuff) into your tables.
+In Lua, we have [`setmetatable{:lua}`](https://www.lua.org/pil/13.html) which allows us to extend/change lua [`table{:lua}`](https://www.lua.org/pil/11.html) behavior. We can use metatable to add support for [operator overloading](#operator-overloading) and some other [crazy stuff](#crazy-stuff) into your tables.
 
 From Official Docs:
 
@@ -27,23 +27,23 @@ print(a.x) -- prints 10
 print(getmetatable(a)) -- returns a's metatable
 ```
 
-`setmetatable` takes 2 parameters; first is the initial table and second is another table with the _metamethods_.
+`setmetatable` takes 2 parameters; the first is the initial table and the second is another table with the _metamethods_.
 
 ## Metamethods
 
-So, how do we use `setmetatable`? Well, here comes [**metamethods**](http://lua-users.org/wiki/MetatableEvents). These are set of methods that defines how your table should behave when certain operation is performed. Let's see how we can add two tables together:
+So, how do we use `setmetatable`? Well, here comes [**metamethods**](http://lua-users.org/wiki/MetatableEvents). These are set of methods that define how your table should behave when a certain operation is performed. Let's see how we can add two tables together:
 
 ```lua filename="__add.lua" {5,19}
 local mt = {}
 
 -- Called when using `+`
--- Here `self` is right hand operand and `that` is left hand operand
+-- Here `self` is right-hand operand and `that` is left-hand operand
 function mt:__add(that)
     return self.x + that.x
 end
 
 -- Another syntax to define methods is using `.`
--- In this you get the `self` as the first argument; we named it as `this`
+-- In this you get the `self` as the first argument; we named it `this`
 --
 -- function mt.__add(this, that)
 --     return this.x + that.x
@@ -57,7 +57,7 @@ print(a + b) -- prints 15
 
 <section id="operator-overloading"></section>
 
-Going with the above example, we can also add support for subtraction (`-`), multiplication `*` , less-than (`<`), less-than-equal (`<=`), equality (`==`), concatenation (`..`) and so on.
+Going with the above example, we can also add support for subtraction (`-`), multiplication `*`, less-than (`<`), less-than-equal (`<=`), equality (`==`), concatenation (`..`) and so on.
 
 ```lua filename="metatable.lua" {4,9,14,19,24,29,34,41-47}
 local mt = {}
@@ -119,7 +119,7 @@ I've used metatables extensively in some of neovim plugins like [`Comment.nvim`]
 
 ### `__index`
 
-This controls prototype inheritence. Whenever we access a field, lua checks whether that field is present or not in the initial table, if not, then `__index` is used to return the field. We can either give it a function or another table. Let's see how it works
+This controls prototype inheritance. Whenever we access a field, lua checks whether that field is present or not in the initial table, if not, then `__index` is used to return the field. We can either give it a function or another table. Let's see how it works
 
 -   **With a `table`**
 
@@ -294,7 +294,7 @@ cat:want_food()
 
 ### `__newindex`
 
-This metamethod controls the assignment and it's called whenever we assign a value to a new property, which doesn't exists in the initial table.
+This metamethod controls the assignment and it's called whenever we assign a value to a new property, which doesn't exist in the initial table.
 
 ```lua filename="__newindex.lua" {5,11-13,15-18}
 local proxy = {}
@@ -355,7 +355,7 @@ print(a(5)) -- prints 15
 print(a.x) -- prints 10
 ```
 
-By providing `__call` metamethod, we can now call our table `a` as a function and still have access to it's property i.e., `a.x`. We'll later see how we can combine this with `__index` to make a powerful abstraction.
+By providing `__call` metamethod, we can now call our table `a` as a function and still have access to its property i.e., `a.x`. We'll later see how we can combine this with `__index` to make a powerful abstraction.
 
 ### `__tostring`
 
@@ -379,7 +379,7 @@ print(node1) -- prints "[D] node_modules"
 print(node2) -- prints "[F] package.json"
 ```
 
-In the example, we are using builtin `tostring(table){:lua}` which calls the `__tostring` methods and the returned value is used as the string representation. The string representation can also be used with `assert(..., node1){:lua}` and `print(table){:lua}`
+In the example, we are using built-in `tostring(table){:lua}` which calls the `__tostring` methods, and the returned value is used as the string representation. The string representation can also be used with `assert(..., node1){:lua}` and `print(table){:lua}`
 
 ### Combining Everything
 
@@ -437,9 +437,9 @@ print(nvim.cmd) -- prints "<CMD>"
 
 Couple of things to note here:
 
--   `__index` returns a function (_ln:5_), this means when we try to index a field i.e., `nvim.cmd.echo` it'll return a function so that we call it like a normal function.
--   On line no. 14 and 18, we are reusing the `__index` method implictly inside `__newindex` and `__call` respectively. Pretty Neat!
+-   `__index` returns a function (_ln:5_), which means when we try to index a field i.e., `nvim.cmd.echo` it'll return a function so that we call it like a normal function.
+-   On line no. 14 and 18, we are reusing the `__index` method implicitly inside `__newindex` and `__call` respectively. Pretty Neat!
 
 ---
 
-I hope now that you understand how we can use metatables to cook up some elegant user facing APIs. If you want to deep dive and learn more then you should checkout this execellent post: [all-you-need-to-know-about-metatables-and-metamethods](https://devforum.roblox.com/t/all-you-need-to-know-about-metatables-and-metamethods/503259).
+I hope now that you understand how we can use metatables to cook up some elegant user-facing APIs. If you want to deep dive and learn more then you should check out this excellent post: [all-you-need-to-know-about-metatables-and-metamethods](https://devforum.roblox.com/t/all-you-need-to-know-about-metatables-and-metamethods/503259).

@@ -16,7 +16,7 @@ In Lua, we have [`setmetatable{:lua}`](https://www.lua.org/pil/13.html) which al
 
 From Official Docs:
 
-> "Metatables allow us to change the behavior of a table. For instance, using metatables, we can define how Lua computes the expression a+b, where a and b are tables. Whenever Lua tries to add two tables, it checks whether either of them has a metatable and whether that metatable has an `__add` field. If Lua finds this field, it calls the corresponding value (the so-called metamethod, which should be a function) to compute the sum."
+> Metatables allow us to change the behavior of a table. For instance, using metatables, we can define how Lua computes the expression a+b, where a and b are tables. Whenever Lua tries to add two tables, it checks whether either of them has a metatable and whether that metatable has an `__add` field. If Lua finds this field, it calls the corresponding value (the so-called metamethod, which should be a function) to compute the sum.
 
 Barebones example:
 

@@ -1,6 +1,9 @@
 import Script from "next/script";
+import { Fira_Mono } from "next/font/google";
 
 const GTAG_ID = process.env.NEXT_PUBLIC_GTAG_ID;
+
+const firamono = Fira_Mono({ subsets: ["latin"], weight: ["400", "700"] });
 
 export default function App({ Component, pageProps }) {
     return (
@@ -8,7 +11,7 @@ export default function App({ Component, pageProps }) {
             <style global jsx>
                 {`
                     :root {
-                        font-family: "Fira Code", monospace;
+                        font-family: ${firamono.style.fontFamily};
                     }
 
                     blockquote > p::after,

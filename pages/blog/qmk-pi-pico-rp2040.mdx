@@ -12,11 +12,11 @@ Today, I planned to flash [QMK](https://docs.qmk.fm/) on a Raspberry Pi Pico jus
 
 Although, I did waste a couple of hours searching through [docs](https://docs.qmk.fm/#/platformdev_rp2040?id=raspberry-pi-rp2040), [existing firmware](https://github.com/qmk/qmk_firmware/blob/master/keyboards/controllerworks/mini42/readme.md) on the qmk repository, understanding pin layout and bootloader mode. _It was enlightening but painful_. So here is everything that I learned so that you won't have to waste your time.
 
-<Callout>For this particular setup, I am using 2x2 matrix with 1 encoder on each half and using `info.json` for most of the configuration for the configuration.</Callout>
+<Callout>For this particular setup, I am using 2x2 matrix with 1 encoder on each half and using `info.json` for most of the configuration.</Callout>
 
 ### Basic Firmware
 
-Run `qmk new-keyboard` command, which will give you the option to choose `RP2040` as the microcontroller and will have the required config pre-populated from the start. You will see the `processor` and `bootloader` with the following values:
+Run `qmk new-keyboard` command, this will give you the option to choose `RP2040` as the microcontroller and will have the required config pre-populated from the start. You will see the `processor` and `bootloader` with the following values:
 
 ```json filename="info.json"
 {
@@ -195,4 +195,4 @@ If everything goes right, you will have a Pi Pico Keyboard powered by QMK. Here 
 ![Switch Matrix Front View](/images/qmk-pi-pico/back.webp)
 ![Switch Matrix Back View](/images/qmk-pi-pico/front.webp)
 
-> Yeah, not pretty! Maybe I'll have to make a PCB for it(?)
+> Yeah, I know it's not pretty! Maybe I'll have to make a PCB for it(?)

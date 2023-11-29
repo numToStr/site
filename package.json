@@ -9,16 +9,16 @@
         "url": "https://www.vikasraj.dev"
     },
     "dependencies": {
-        "@vercel/og": "^0.5.6",
-        "next": "^13.4.4",
-        "nextra": "2.6.2",
-        "nextra-theme-blog": "2.6.2",
+        "@vercel/og": "^0.5.20",
+        "next": "^14.0.3",
+        "nextra": "^2.13.2",
+        "nextra-theme-blog": "^2.13.2",
         "react": "^18.2.0",
         "react-dom": "^18.2.0"
     },
     "devDependencies": {
-        "globby": "^13.1.4",
-        "prettier": "^2.8.8"
+        "globby": "^14.0.0",
+        "prettier": "^3.1.0"
     },
     "license": "CC BY-NC-SA 4.0",
     "scripts": {

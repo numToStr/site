@@ -13,9 +13,6 @@ const withNextra = nextra({
  */
 const config = {
     reactStrictMode: true,
-    experimental: {
-        legacyBrowsers: false,
-    },
     async redirects() {
         return [
             {

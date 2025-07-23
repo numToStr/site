@@ -105,3 +105,4 @@ dist
 .tern-port
 
 public/sitemap.xml
+pnpm-lock.yaml

@@ -9,12 +9,12 @@
         "url": "https://www.vikasraj.dev"
     },
     "dependencies": {
-        "@vercel/og": "^0.5.20",
-        "next": "^14.0.3",
-        "nextra": "^2.13.2",
-        "nextra-theme-blog": "^2.13.2",
-        "react": "^18.2.0",
-        "react-dom": "^18.2.0"
+        "@vercel/og": "^0.8.2",
+        "next": "^15.4.3",
+        "nextra": "^4.2.17",
+        "nextra-theme-blog": "^4.2.17",
+        "react": "^19.1.0",
+        "react-dom": "^19.1.0"
     },
     "devDependencies": {
         "globby": "^14.0.0",
@@ -22,11 +22,12 @@
     },
     "license": "CC BY-NC-SA 4.0",
     "scripts": {
-        "dev": "next",
-        "build": "pnpm gen:sitemap && next build",
+        "dev": "next --turbopack",
+        "build": "next build",
         "start": "next start",
         "format": "prettier --write src/**/*.{js,jsx}",
-        "gen:sitemap": "node scripts/sitemap.mjs"
+        "gen:sitemap": "node scripts/sitemap.mjs",
+        "//postbuild": "pagefind --site .next/server/app --output-path public/_pagefind"
     },
     "repository": {
         "type": "git",

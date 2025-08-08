@@ -36,5 +36,6 @@
     },
     "bugs": {
         "url": "https://github.com/numToStr/site/issues"
-    }
+    },
+    "packageManager": "pnpm@10.14.0"
 }

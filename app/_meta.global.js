@@ -1,8 +1,10 @@
 export default {
     index: {
+        title: "About",
         type: "page",
     },
-    posts: {
+    blog: {
+        title: "Writings",
         type: "page",
         items: {
             // draft: {

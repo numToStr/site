@@ -8,4 +8,13 @@ const withNextra = nextra({
 export default withNextra({
     reactStrictMode: true,
     cleanDistDir: true,
+    async redirects() {
+        return [
+            {
+                source: "/tags",
+                destination: "/blog",
+                permanent: false,
+            },
+        ];
+    },
 });

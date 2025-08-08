@@ -1,8 +1,16 @@
+import Script from "next/script";
 import { Footer, Layout, Navbar, ThemeSwitch } from "nextra-theme-blog";
 import { Head, Search } from "nextra/components";
 import { getPageMap } from "nextra/page-map";
 import "nextra-theme-blog/style.css";
-import { NAME, UNAME, EMAIL, SITE, TWITTER } from "../const.mjs";
+import { Fira_Code } from "next/font/google";
+import { NAME, SITE } from "../common/const.mjs";
+import { BlogFooter } from "../common/components/footer";
+
+const GTAG_ID = process.env.NEXT_PUBLIC_GTAG_ID;
+
+const firaCode = Fira_Code({ subsets: ["latin"], weight: ["400", "700"] });
+
 /**
  * @type {import("next").Metadata}
  */
@@ -21,7 +29,42 @@ export const metadata = {
 export default async function RootLayout({ children }) {
     return (
         <html lang="en" suppressHydrationWarning>
-            <Head backgroundColor={{ dark: "#0f172a", light: "#fefce8" }} />
+            <Head backgroundColor={{ light: "#fefce8" }}>
+                <style>
+                    {`
+                    :root {
+                        --x-default-font-family: ${firaCode.style.fontFamily};
+                    }
+
+                    kbd {
+                        border: 1px solid;
+                        padding: 0.1em 0.4em;
+                        border-radius: 0.4em;
+                        border-bottom: 0.24em solid;
+                    }
+
+                    footer {
+                        font-size: small;
+                    }
+
+                    footer .legends {
+                        display: flex;
+                        flex-direction: column;
+                    }
+
+                    footer .legends > div {
+                        padding: 0.25rem 0;
+                    }
+
+                    @media only screen and (min-width: 600px) {
+                        footer .legends {
+                            flex-direction: row;
+                            justify-content: space-between;
+                        }
+                    }
+                `}
+                </style>
+            </Head>
             <body>
                 <Layout>
                     <Navbar pageMap={await getPageMap()}>
@@ -32,70 +75,26 @@ export default async function RootLayout({ children }) {
                     {children}
 
                     <Footer>
-                        <Footer2 />
+                        <BlogFooter />
                     </Footer>
                 </Layout>
             </body>
+            <Script
+                async
+                id="gtag-script"
+                src={`https://www.googletagmanager.com/gtag/js?id=${GTAG_ID}`}
+            />
+            <Script
+                id="gtag-setup"
+                dangerouslySetInnerHTML={{
+                    __html: `
+                        window.dataLayer = window.dataLayer || [];
+                        function gtag(){dataLayer.push(arguments);}
+                        gtag('js', new Date());
+                        gtag('config', '${GTAG_ID}');
+                    `,
+                }}
+            />
         </html>
-    );
-}
-
-function Footer2() {
-    // const { pathname } = useRouter();
-    // const isPost = blogRegex.test(pathname);
-
-    return (
-        <footer>
-            <hr />
-            <section className="legends">
-                <nav>
-                    <a
-                        href={`https://twitter.com/${UNAME}`}
-                        target="_blank"
-                        rel="noreferrer"
-                    >
-                        Twitter
-                    </a>
-                    <span> · </span>
-                    <a
-                        href={`https://github.com/${UNAME}`}
-                        target="_blank"
-                        rel="noreferrer"
-                    >
-                        GitHub
-                    </a>
-                    <span> · </span>
-                    <a
-                        href={`mailto:${EMAIL}`}
-                        target="_blank"
-                        rel="noreferrer"
-                    >
-                        {EMAIL}
-                    </a>
-                </nav>
-                {/* <aside>
-                    {isPost ? (
-                        <a
-                            title="Found a Typo? Have any suggestions? Feel free to submit a PR :)"
-                            href={`https://github.com/${UNAME}/site/edit/main/pages${pathname}.mdx`}
-                            target="_blank"
-                            rel="noreferrer"
-                        >
-                            Edit on Github
-                        </a>
-                    ) : null}
-                </aside> */}
-            </section>
-            <section style={{ marginTop: "4rem" }}>
-                <abbr
-                    title="This site and all its content are licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License."
-                    style={{ cursor: "help" }}
-                >
-                    CC BY-NC-SA 4.0
-                </abbr>
-                <time> {new Date().getFullYear()}</time> &copy; {NAME}.
-                {/* <a href="/feed.xml">RSS</a> */}
-            </section>
-        </footer>
     );
 }

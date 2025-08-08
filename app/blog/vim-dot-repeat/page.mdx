@@ -2,7 +2,7 @@
 title: Dot-Repeat in Vim and Neovim
 description: Understand dot-repeat in-depth; One of the most powerful feature of vim and neovim
 date: 2022-06-30
-tag: [neovim, vim]
+tags: [neovim, vim]
 type: post
 ---
 
@@ -312,7 +312,6 @@ xnoremap gt <ESC><CMD>call DotRepeat(visualmode())<CR> " 1.
 </details>
 
 1. We have to `<ESC>` first and only after that visual marks `'<` and `'>` are populated
-
     - `vim.fn.visualmode()` returns one of `v`, `V` or `<CTRL-v>`
 
 2. Checking `motion` for any `VISUAL` mode characters

@@ -1,13 +1,11 @@
 import { ImageResponse } from "@vercel/og";
-import { NAME, UNAME, DOMAIN } from "../../const";
+import { NAME, UNAME, DOMAIN } from "../../common/const.mjs";
 
-export const config = {
-    runtime: "edge",
-};
+export const runtime = "edge";
 
-const font = fetch(
-    new URL("../../assets/FiraCode-SemiBold.ttf", import.meta.url)
-).then((res) => res.arrayBuffer());
+const loadFont = fetch(new URL("FiraCode-SemiBold.ttf", import.meta.url)).then(
+    (res) => res.arrayBuffer()
+);
 
 const color = "#d1d1d1";
 
@@ -89,9 +87,8 @@ function Layout({ children, path }) {
     );
 }
 
-async function og(req) {
-    const firaCode = await font;
-
+export async function GET(req) {
+    const firaCode = await loadFont;
     const { searchParams } = new URL(req.url);
 
     // ?t=<title>&d=<date>
@@ -148,5 +145,3 @@ async function og(req) {
         config
     );
 }
-
-export default og;

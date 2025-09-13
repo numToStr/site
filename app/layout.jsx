@@ -3,13 +3,13 @@ import { Footer, Layout, Navbar, ThemeSwitch } from "nextra-theme-blog";
 import { Head, Search } from "nextra/components";
 import { getPageMap } from "nextra/page-map";
 import "nextra-theme-blog/style.css";
-import { Fira_Code } from "next/font/google";
+import { JetBrains_Mono } from "next/font/google";
 import { NAME, SITE } from "../common/const.mjs";
 import { BlogFooter } from "../common/components/footer";
 
 const GTAG_ID = process.env.NEXT_PUBLIC_GTAG_ID;
 
-const firaCode = Fira_Code({ subsets: ["latin"], weight: ["400", "700"] });
+const firaCode = JetBrains_Mono({ subsets: ["latin"], weight: ["400", "700"] });
 
 /**
  * @type {import("next").Metadata}

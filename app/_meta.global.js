@@ -1,5 +1,5 @@
 export default {
-    index: {
+    about: {
         title: "About",
         type: "page",
     },

@@ -11,6 +11,11 @@ export default withNextra({
     async redirects() {
         return [
             {
+                source: "/",
+                destination: "/blog",
+                permanent: false,
+            },
+            {
                 source: "/tags",
                 destination: "/blog",
                 permanent: false,

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { NAME } from "../common/const.mjs";
+import { NAME } from "../../common/const.mjs";
 
 export const metadata = {
     title: `Hey 👋 | ${NAME}`,
@@ -53,7 +53,7 @@ export default function About() {
             <p>
                 Thank you for visiting and be sure to check out my{" "}
                 <Link href="/blog">
-                    <strong>writiings</strong>
+                    <strong>writings</strong>
                 </Link>
                 !
             </p>

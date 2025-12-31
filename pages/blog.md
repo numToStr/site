@@ -1,4 +1,0 @@
----
-type: posts
-title: Writings
----

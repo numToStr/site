@@ -1,17 +1,15 @@
 import { ImageResponse } from "@vercel/og";
-import { NAME, UNAME, DOMAIN } from "../../const";
+import { NAME, UNAME, DOMAIN } from "../../common/const.mjs";
 
-export const config = {
-    runtime: "edge",
-};
+export const runtime = "edge";
 
-const font = fetch(
-    new URL("../../assets/FiraCode-SemiBold.ttf", import.meta.url)
-).then((res) => res.arrayBuffer());
+const loadFont = fetch(new URL("FiraCode-SemiBold.ttf", import.meta.url)).then(
+    (res) => res.arrayBuffer()
+);
 
 const color = "#d1d1d1";
 
-function Layout({ children, path }) {
+function OgImageLayout({ children, path }) {
     return (
         <div
             style={{
@@ -89,9 +87,8 @@ function Layout({ children, path }) {
     );
 }
 
-async function og(req) {
-    const firaCode = await font;
-
+export async function GET(req) {
+    const firaCode = await loadFont;
     const { searchParams } = new URL(req.url);
 
     // ?t=<title>&d=<date>
@@ -114,39 +111,31 @@ async function og(req) {
 
     if (!(date && path && readingTime)) {
         return new ImageResponse(
-            (
-                <Layout>
-                    <h1 style={{ fontSize: 100, letterSpacing: -2 }}>
-                        {title}
-                    </h1>
-                </Layout>
-            ),
+            <OgImageLayout>
+                <h1 style={{ fontSize: 100, letterSpacing: -2 }}>{title}</h1>
+            </OgImageLayout>,
             config
         );
     }
 
     return new ImageResponse(
-        (
-            <Layout path={path}>
-                <h1
-                    style={{
-                        fontSize: 70,
-                        letterSpacing: -4,
-                        backgroundImage: `linear-gradient(90deg, #fff 40%, ${color})`,
-                        backgroundClip: "text",
-                        "-webkit-background-clip": "text",
-                        color: "transparent",
-                    }}
-                >
-                    {title}
-                </h1>
-                <p style={{ color, fontSize: 26 }}>
-                    {date} · {readingTime}
-                </p>
-            </Layout>
-        ),
+        <OgImageLayout path={path}>
+            <h1
+                style={{
+                    fontSize: 70,
+                    letterSpacing: -4,
+                    backgroundImage: `linear-gradient(90deg, #fff 40%, ${color})`,
+                    backgroundClip: "text",
+                    "-webkit-background-clip": "text",
+                    color: "transparent",
+                }}
+            >
+                {title}
+            </h1>
+            <p style={{ color, fontSize: 26 }}>
+                {date} · {readingTime}
+            </p>
+        </OgImageLayout>,
         config
     );
 }
-
-export default og;

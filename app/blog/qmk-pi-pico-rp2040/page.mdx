@@ -2,17 +2,20 @@
 title: Running QMK on Raspberry Pi Pico (RP2040)
 description: Whether you have rotary encoders or building a split keyboard, everything is easier than you think.
 date: 2023-05-30
-tag: [qmk, rp2040]
+tags: [qmk, rp2040]
 type: post
 ---
 
-import { Callout } from 'nextra/components'
+import { Callout } from "nextra/components";
 
 Today, I planned to flash [QMK](https://docs.qmk.fm/) on a Raspberry Pi Pico just to scratch my itch and see whether I could use Pi Pico for my next keyboard. To my surprise, it was fairly easy (or is it?).
 
 Although, I did waste a couple of hours searching through [docs](https://docs.qmk.fm/#/platformdev_rp2040?id=raspberry-pi-rp2040), [existing firmware](https://github.com/qmk/qmk_firmware/blob/master/keyboards/controllerworks/mini42/readme.md) on the qmk repository, understanding pin layout and bootloader mode. _It was enlightening but painful_. So here is everything that I learned so that you won't have to waste your time.
 
-<Callout>For this particular setup, I am using 2x2 matrix with 1 encoder on each half and using `info.json` for most of the configuration.</Callout>
+<Callout>
+    For this particular setup, I am using 2x2 matrix with 1 encoder on each half
+    and using `info.json` for most of the configuration.
+</Callout>
 
 ### Basic Firmware
 
@@ -57,7 +60,7 @@ Here is my layout. I am not going to deep dive into configuring the layout, docs
                 { "matrix": [1, 0], "x": 0, "y": 0 },
                 { "matrix": [1, 1], "x": 1, "y": 0 },
                 { "matrix": [3, 0], "x": 2, "y": 0 },
-                { "matrix": [3, 1], "x": 3, "y": 0 },
+                { "matrix": [3, 1], "x": 3, "y": 0 }
             ]
         }
     }
@@ -72,10 +75,7 @@ I am using an EC11 rotary, which also comes with a push button (or switch) that 
 {
     "encoder": {
         "enabled": true,
-        "rotary": [
-            { "pin_a": "GP10", "pin_b": "GP11", "resolution": 2 }
-        ]
-
+        "rotary": [{ "pin_a": "GP10", "pin_b": "GP11", "resolution": 2 }]
     }
 }
 ```
@@ -110,7 +110,7 @@ And also updating our layout
                 { "matrix": [1, 2], "x": 2, "y": 0 },
                 { "matrix": [3, 0], "x": 3, "y": 0 },
                 { "matrix": [3, 1], "x": 4, "y": 0 },
-                { "matrix": [3, 2], "x": 5, "y": 0 },
+                { "matrix": [3, 2], "x": 5, "y": 0 }
             ]
         }
     }
@@ -129,7 +129,7 @@ Next up, setting up the 2 halves. This is no different than making a keyboard wi
         "soft_serial_pin": "GP1",
         "transport": { "protocol": "serial" },
         "usb_detect": { "timeout": 2500 }
-    },
+    }
 }
 ```
 
@@ -144,10 +144,10 @@ Also, if you have a different pin setup on the right half than the left half, th
         "matrix_pins": {
             "right": {
                 "rows": ["GP6", "GP7"],
-                "cols": ["GP19","GP21", "GP20"]
-            }
+                "cols": ["GP19", "GP21", "GP20"],
+            },
         },
-    }
+    },
 }
 ```
 
@@ -159,11 +159,9 @@ The same goes for the encoders if they are connected to different pins.
         // above config...
         "encoder": {
             "enabled": true,
-            "rotary": [
-                { "pin_a": "GP11", "pin_b": "GP10", "resolution": 4 }
-            ]
-        }
-    }
+            "rotary": [{ "pin_a": "GP11", "pin_b": "GP10", "resolution": 4 }],
+        },
+    },
 }
 ```
 
@@ -179,7 +177,10 @@ You can check out the keymaps (and full source) for this keyboard [here](https:/
 
 ### Bootloader and Flashing
 
-<Callout>`qmk` cli is the only(?) way to flash the firmware, QMK toolbox is useless for RP2040</Callout>
+<Callout>
+    `qmk` cli is the only(?) way to flash the firmware, QMK toolbox is useless
+    for RP2040
+</Callout>
 
 Run `qmk flash -kb <keyboard> -km default{:bash}` to flash the firmware. QMK will compile the firmware into `uf2` file and then wait for the device...
 

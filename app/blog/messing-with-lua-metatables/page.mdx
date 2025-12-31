@@ -2,13 +2,18 @@
 title: Messing with lua metatables
 description: because the more we mess around; the more we find out!
 date: 2023-01-05
-tag: [neovim, lua]
+tags: [neovim, lua]
 type: post
 ---
 
+import { Callout } from "nextra/components";
+
 Some programming languages allow users to extend built-in data types with the help of constructs that are built into the language. In Rust, you can extend a [`struct{:rust}`](https://doc.rust-lang.org/stable/std/keyword.struct.html) by implementing various traits like [`Add{:rust}`](https://doc.rust-lang.org/stable/std/ops/trait.Add.html), [`Sub{:rust}`](https://doc.rust-lang.org/stable/std/ops/trait.Sub.html), [`Mul{:rust}`](https://doc.rust-lang.org/stable/std/ops/trait.Mul.html) etc,. to extend its capabilities. _Let's see what Lua has to offer!_
 
-> <small>NOTE: We are only going to use Lua 5.1 as this is the version that is supported by [LuaJIT](https://luajit.org/).</small>
+<Callout type="info">
+    We are only going to use Lua 5.1 as this is the version that is supported by
+    [LuaJIT](https://luajit.org/).
+</Callout>
 
 ## Metatables
 
@@ -121,7 +126,7 @@ I've used metatables extensively in some of neovim plugins like [`Comment.nvim`]
 
 This controls prototype inheritance. Whenever we access a field, lua checks whether that field is present or not in the initial table, if not, then `__index` is used to return the field. We can either give it a function or another table. Let's see how it works
 
--   **With a `table`**
+- **With a `table`**
 
 ```lua filename="__index.lua" {3,7-9}
 local mt = {}
@@ -137,7 +142,7 @@ print(a.z) -- prints nil
 
 As you can see, `a.y` doesn't exists on the initial table so `__index` is indexed for the field and the value will be returned.
 
--   **With a `function`**
+- **With a `function`**
 
 ```lua filename="__index.lua" {3,15-16}
 local mt = {}
@@ -290,7 +295,14 @@ cat:want_food()
 
 </details>
 
-> <small>As for myself, I used these techniques to [add](https://github.com/numToStr/Comment.nvim/pull/245) and [simplify](https://github.com/numToStr/Comment.nvim/pull/183) features in Comment.nvim and added [inheritence](https://github.com/numToStr/Navigator.nvim/wiki/Custom-Multiplexer#extending-from-vi) in Navigator.nvim </small>
+<Callout>
+    As for myself, I used these techniques to
+    [add](https://github.com/numToStr/Comment.nvim/pull/245) and
+    [simplify](https://github.com/numToStr/Comment.nvim/pull/183) features in
+    Comment.nvim and added
+    [inheritence](https://github.com/numToStr/Navigator.nvim/wiki/Custom-Multiplexer#extending-from-vi)
+    in Navigator.nvim{" "}
+</Callout>
 
 ### `__newindex`
 
@@ -437,8 +449,8 @@ print(nvim.cmd) -- prints "<CMD>"
 
 Couple of things to note here:
 
--   `__index` returns a function (_ln:5_), which means when we try to index a field i.e., `nvim.cmd.echo` it'll return a function so that we call it like a normal function.
--   On line no. 14 and 18, we are reusing the `__index` method implicitly inside `__newindex` and `__call` respectively. Pretty Neat!
+- `__index` returns a function (_ln:5_), which means when we try to index a field i.e., `nvim.cmd.echo` it'll return a function so that we call it like a normal function.
+- On line no. 14 and 18, we are reusing the `__index` method implicitly inside `__newindex` and `__call` respectively. Pretty Neat!
 
 ---
 

@@ -6,12 +6,14 @@ tags: [neovim, lua]
 type: post
 ---
 
+import { Callout } from "nextra/components";
+
 Some programming languages allow users to extend built-in data types with the help of constructs that are built into the language. In Rust, you can extend a [`struct{:rust}`](https://doc.rust-lang.org/stable/std/keyword.struct.html) by implementing various traits like [`Add{:rust}`](https://doc.rust-lang.org/stable/std/ops/trait.Add.html), [`Sub{:rust}`](https://doc.rust-lang.org/stable/std/ops/trait.Sub.html), [`Mul{:rust}`](https://doc.rust-lang.org/stable/std/ops/trait.Mul.html) etc,. to extend its capabilities. _Let's see what Lua has to offer!_
 
-> <small>
->     NOTE: We are only going to use Lua 5.1 as this is the version that is
->     supported by [LuaJIT](https://luajit.org/).
-> </small>
+<Callout type="info">
+    We are only going to use Lua 5.1 as this is the version that is supported by
+    [LuaJIT](https://luajit.org/).
+</Callout>
 
 ## Metatables
 
@@ -293,14 +295,14 @@ cat:want_food()
 
 </details>
 
-> <small>
->     As for myself, I used these techniques to
->     [add](https://github.com/numToStr/Comment.nvim/pull/245) and
->     [simplify](https://github.com/numToStr/Comment.nvim/pull/183) features in
->     Comment.nvim and added
->     [inheritence](https://github.com/numToStr/Navigator.nvim/wiki/Custom-Multiplexer#extending-from-vi)
->     in Navigator.nvim{" "}
-> </small>
+<Callout>
+    As for myself, I used these techniques to
+    [add](https://github.com/numToStr/Comment.nvim/pull/245) and
+    [simplify](https://github.com/numToStr/Comment.nvim/pull/183) features in
+    Comment.nvim and added
+    [inheritence](https://github.com/numToStr/Navigator.nvim/wiki/Custom-Multiplexer#extending-from-vi)
+    in Navigator.nvim{" "}
+</Callout>
 
 ### `__newindex`
 

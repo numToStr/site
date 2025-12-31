@@ -33,7 +33,7 @@ export function BlogFooter() {
                 </nav>
                 <PageEdit />
             </section>
-            <section style={{ marginTop: "4rem" }}>
+            <section style={{ marginTop: "2rem" }}>
                 <abbr
                     title="This site and all its content are licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License."
                     style={{ cursor: "help" }}

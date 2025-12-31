@@ -1,8 +1,7 @@
 import Link from "next/link";
-import { NAME } from "../../common/const.mjs";
 
 export const metadata = {
-    title: `Hey 👋 | ${NAME}`,
+    title: `Hey 👋`,
     description:
         "I am Vikas Rajbanshi, a software engineer based in India. I know how to code for the browser and server but I personally enjoy building stuff for the terminals.",
 };

@@ -9,7 +9,7 @@ const loadFont = fetch(new URL("FiraCode-SemiBold.ttf", import.meta.url)).then(
 
 const color = "#d1d1d1";
 
-function Layout({ children, path }) {
+function OgImageLayout({ children, path }) {
     return (
         <div
             style={{
@@ -111,37 +111,31 @@ export async function GET(req) {
 
     if (!(date && path && readingTime)) {
         return new ImageResponse(
-            (
-                <Layout>
-                    <h1 style={{ fontSize: 100, letterSpacing: -2 }}>
-                        {title}
-                    </h1>
-                </Layout>
-            ),
+            <OgImageLayout>
+                <h1 style={{ fontSize: 100, letterSpacing: -2 }}>{title}</h1>
+            </OgImageLayout>,
             config
         );
     }
 
     return new ImageResponse(
-        (
-            <Layout path={path}>
-                <h1
-                    style={{
-                        fontSize: 70,
-                        letterSpacing: -4,
-                        backgroundImage: `linear-gradient(90deg, #fff 40%, ${color})`,
-                        backgroundClip: "text",
-                        "-webkit-background-clip": "text",
-                        color: "transparent",
-                    }}
-                >
-                    {title}
-                </h1>
-                <p style={{ color, fontSize: 26 }}>
-                    {date} · {readingTime}
-                </p>
-            </Layout>
-        ),
+        <OgImageLayout path={path}>
+            <h1
+                style={{
+                    fontSize: 70,
+                    letterSpacing: -4,
+                    backgroundImage: `linear-gradient(90deg, #fff 40%, ${color})`,
+                    backgroundClip: "text",
+                    "-webkit-background-clip": "text",
+                    color: "transparent",
+                }}
+            >
+                {title}
+            </h1>
+            <p style={{ color, fontSize: 26 }}>
+                {date} · {readingTime}
+            </p>
+        </OgImageLayout>,
         config
     );
 }

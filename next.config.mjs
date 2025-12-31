@@ -22,4 +22,10 @@ export default withNextra({
             },
         ];
     },
+    turbopack: {
+        resolveAlias: {
+            // Path to your `mdx-components` file with extension
+            "next-mdx-import-source-file": "./mdx-components.jsx",
+        },
+    },
 });

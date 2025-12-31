@@ -4,27 +4,58 @@ import { Head, Search } from "nextra/components";
 import { getPageMap } from "nextra/page-map";
 import "nextra-theme-blog/style.css";
 import { JetBrains_Mono } from "next/font/google";
-import { NAME, SITE } from "../common/const.mjs";
+import { NAME, SITE, TWITTER } from "../common/const.mjs";
 import { BlogFooter } from "../common/components/footer";
 
 const GTAG_ID = process.env.NEXT_PUBLIC_GTAG_ID;
 
-const firaCode = JetBrains_Mono({ subsets: ["latin"], weight: ["400", "700"] });
+const jetBrains = JetBrains_Mono({
+    subsets: ["latin"],
+    weight: ["400", "700"],
+});
 
 /**
  * @type {import("next").Metadata}
  */
 export const metadata = {
+    metadataBase: SITE,
     title: {
         template: `%s | ${NAME}`,
     },
+    referrer: "origin-when-cross-origin",
+    category: "technology",
+    authors: NAME,
+    alternates: {
+        canonical: "./",
+    },
     openGraph: {
-        url: SITE,
-        // siteName: "Nextra",
+        url: "./",
         locale: "en_US",
         type: "website",
+        images: "/og",
+        publishedTime: "2023-01-01T00:00:00.000Z",
+        logo: "/logo.png",
+    },
+    twitter: {
+        card: "summary_large_image",
+        creator: TWITTER,
+        site: TWITTER,
+        url: "./",
+    },
+    other: {
+        author: NAME,
     },
 };
+
+// /**
+//  *
+//  * @param {{params: Promise<{slug: string}>, searchParams: Promise<{ [key: string]: string | string[] | undefined }>}} props
+//  * @param {import("next").ResolvingMetadata} parent
+//  * @returns {import("next").Metadata}
+//  */
+// export async function generateMetadata(props, parent) {
+//     return {}
+// }
 
 export default async function RootLayout({ children }) {
     return (
@@ -33,7 +64,7 @@ export default async function RootLayout({ children }) {
                 <style>
                     {`
                     :root {
-                        --x-default-font-family: ${firaCode.style.fontFamily};
+                        --x-default-font-family: ${jetBrains.style.fontFamily};
                     }
 
                     kbd {
